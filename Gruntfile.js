@@ -16,12 +16,19 @@ module.exports = function (grunt) {
     // Concatenation Tasks
     tasks = require(grunt.uriTask + 'concat-js.js')(grunt, tasks);
 
+    // Documentation Generator
+    tasks = require(grunt.uriTask + 'dgeni.js')(grunt, tasks);
+
     // Compass Tasks
     tasks = require(grunt.uriTask + 'sass.js')(grunt, tasks);
 
     // Minify Tasks
     tasks = require(grunt.uriTask + 'minify-html.js')(grunt, tasks);
     tasks = require(grunt.uriTask + 'minify-js.js')(grunt, tasks);
+
+    grunt.registerTask('docs', [
+        'dgeni'
+    ]);
 
     grunt.registerTask('build', [
         'clean',
@@ -31,6 +38,7 @@ module.exports = function (grunt) {
         'concat:js',
         'uglify:js'
     ]);
+
     grunt.registerTask('default', [
         'build'
     ]);
