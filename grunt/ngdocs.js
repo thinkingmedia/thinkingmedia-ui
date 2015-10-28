@@ -3,7 +3,7 @@ module.exports = function (grunt, tasks) {
 
     tasks.ngdocs = {
         options: {
-            dest: 'docs',
+            dest: 'build/docs',
             html5Mode: true
             //startPage: '/ui',
             //title: "API Documentation",
