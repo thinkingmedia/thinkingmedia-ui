@@ -34,6 +34,8 @@ When you're done, your setup should look similar to the following:
 
 ## Build
 
+x
+
 ```
 $ git clone https://github.com/thinkingmedia/thinkingmedia-ui thinkingmedia-ui
 $ cd thinkingmedia-ui
