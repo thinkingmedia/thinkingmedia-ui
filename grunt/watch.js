@@ -9,25 +9,12 @@ module.exports = function(grunt, tasks)
 				grunt.uriSrc + "**/*.scss"
 			],
 			tasks:   [
-				'compass:dev'
+				'sass:dev'
 			],
 			options: {
 				atBegin:   true,
 				spawn:     false,
 				interrupt: true
-			}
-		},
-		scripts: {
-			files:   [
-				grunt.uriSrc + "**/*.js"
-			],
-			tasks:   [
-				'index:dev',
-				'copy:dev'
-			],
-			options: {
-				atBegin: true,
-				event:   ['added', 'deleted']
 			}
 		}
 	};

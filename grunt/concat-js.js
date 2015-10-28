@@ -17,10 +17,12 @@ module.exports = function(grunt, tasks)
 	files.push(grunt.uriSrc + '*/*/*/*/*/*/*/*.js');
 	files.push('!' + grunt.uriSrc + '**/*.Test.js');
 
-	tasks.concat.js = {
-		dest: grunt.dist + 'thinkingmedia-ui.js',
-		src:  files
-	};
+    tasks.concat = {
+        js: {
+            dest: grunt.dist + 'thinkingmedia-ui.js',
+            src:  files
+        }
+    };
 
 	return tasks;
 };
