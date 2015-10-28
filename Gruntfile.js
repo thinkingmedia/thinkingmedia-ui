@@ -86,9 +86,11 @@ module.exports = function (grunt) {
                 }).then(function () {
                     return system('git merge master');
                 }).then(function () {
-                    return system('grunt docs');
+                    return system('grunt build');
                 }).then(function () {
-                    return system('git commit -a -m \'Automatic gh-pages build\'');
+                    return system('git add --all');
+                }).then(function () {
+                    return system('git commit -m \'Automatic gh-pages build\'');
                 }).then(function () {
                     return system('git checkout master');
                 })
