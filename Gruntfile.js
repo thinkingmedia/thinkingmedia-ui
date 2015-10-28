@@ -29,8 +29,7 @@ module.exports = function (grunt) {
         'sass:dev',
         'htmlmin:prod',
         'concat:js',
-        'uglify:js',
-        'clean'
+        'uglify:js'
     ]);
     grunt.registerTask('default', [
         'build'
