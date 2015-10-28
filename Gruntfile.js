@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     tasks = require(grunt.uriTask + 'concat-js.js')(grunt, tasks);
 
     // Documentation Generator
-    tasks = require(grunt.uriTask + 'dgeni.js')(grunt, tasks);
+    tasks = require(grunt.uriTask + 'ngdocs.js')(grunt, tasks);
 
     // Compass Tasks
     tasks = require(grunt.uriTask + 'sass.js')(grunt, tasks);
@@ -26,8 +26,9 @@ module.exports = function (grunt) {
     tasks = require(grunt.uriTask + 'minify-html.js')(grunt, tasks);
     tasks = require(grunt.uriTask + 'minify-js.js')(grunt, tasks);
 
+
     grunt.registerTask('docs', [
-        'dgeni'
+        'ngdocs'
     ]);
 
     grunt.registerTask('build', [

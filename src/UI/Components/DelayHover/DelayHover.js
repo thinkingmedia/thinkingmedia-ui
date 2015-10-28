@@ -1,12 +1,13 @@
+/**
+ * @ngdoc directive
+ * @name UI.uiDelayHover
+ * @description
+ * Executes the expression after hovering for 500ms or the value of ui-delay-time attribute.
+ */
 (function (app) {
 
     /**
-     * Executes the expression after hovering for 500ms or the value of ui-delay-time attribute.
-     *
-     * @name UI.uiDelayHover
-     *
      * @param {angular.ITimeoutService} $timeout
-     *
      * @constructor
      */
     function uiDelayHoverDirective($timeout) {
