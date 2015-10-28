@@ -3,3 +3,4 @@
 /.sass-cache
 /vendor
 /node_modules
+/build
