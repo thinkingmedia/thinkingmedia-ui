@@ -81,32 +81,16 @@ module.exports = function (grunt) {
         promising(this,
             ensureCleanMaster()
                 .then(function () {
-                    shjs.rm('-rf', 'build');
                     return system('git checkout gh-pages');
-                }).then(function () {
-                    return system('git merge master');
-                }).then(function () {
-                    return system('grunt build');
                 }).then(function () {
                     return system('git add --all');
                 }).then(function () {
                     return system('git commit -m "Automatic gh-pages build"');
                 }).then(function () {
+                    return system('git push');
+                }).then(function () {
                     return system('git checkout master');
                 })
-        );
-    });
-
-    grunt.registerTask('push', 'Push published pages', function () {
-        promising(this,
-            ensureCleanMaster().then(function () {
-                shjs.rm('-rf', 'build');
-                return system('git checkout gh-pages');
-            }).then(function () {
-                return system('git push origin gh-pages');
-            }).then(function () {
-                return system('git checkout master');
-            })
         );
     });
 
