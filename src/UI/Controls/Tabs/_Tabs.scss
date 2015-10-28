@@ -1,0 +1,48 @@
+@import "../../Config";
+
+@import "Tab/Tab";
+
+.ui-tabs {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-names {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+  }
+
+  &-name {
+    display: inline-block;
+    height: $ui-unit-md;
+    cursor: pointer;
+    font-size: 12px;
+
+    .txt, .ui-button {
+      display: inline-block;
+      overflow: hidden;
+      height: $ui-unit-md;
+    }
+    .txt {
+      padding: 0 $ui-unit-xsm;
+      line-height: $ui-unit-md;
+    }
+  }
+
+  &-tools {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &-tab {
+    position: absolute;
+    top: $ui-unit-md;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

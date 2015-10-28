@@ -1,0 +1,59 @@
+@import "../../Config";
+
+.ui-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  @include user-select(none);
+
+  @each $unit in $ui-units {
+    &.ui-size-#{nth($unit,1)} {
+      font-size: nth($unit, 2);
+      height: nth($unit, 2);
+      line-height: nth($unit, 2);
+      &.icon-only {
+        width: nth($unit, 2);
+      }
+    }
+  }
+
+  &[disabled] {
+    color: $ui-color-text-disabled;
+    cursor: default;
+  }
+
+  &-txt {
+    //display: inline-block;
+    overflow: hidden;
+  }
+
+  &.as-menu-item {
+    width: 100%;
+    padding-left: $ui-unit-sm;
+    padding-right: $ui-unit-sm;
+    font-size: 14px;
+    font-weight: 400;
+    height: $ui-unit-md;
+    line-height: $ui-unit-md;
+
+    .ui-icon {
+      display: block;
+      position: absolute;
+      top: $ui-unit;
+      left: $ui-unit-sm;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ui-button-txt {
+      display: block;
+      height: $ui-unit-md;
+      line-height: $ui-unit-md;
+      margin-left: $ui-unit-md;
+      white-space: nowrap;
+    }
+  }
+}

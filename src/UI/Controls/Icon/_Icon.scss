@@ -1,0 +1,18 @@
+@import "../../Config";
+
+.ui-icon {
+  display: inline-block;
+
+  @each $unit in $ui-units {
+    &.ui-size-#{nth($unit,1)} {
+      font-size: nth($unit, 2);
+      width: nth($unit, 2);
+      height: nth($unit, 2);
+      line-height: nth($unit, 2);
+    }
+  }
+
+  &.ui-fit-md {
+    margin: $ui-unit;
+  }
+}

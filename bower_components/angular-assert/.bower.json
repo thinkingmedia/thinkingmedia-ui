@@ -1,0 +1,40 @@
+{
+  "name": "angular-assert",
+  "main": "dist/angular-assert.js",
+  "description": "AngularJS service used to assert values are as expected in JavaScript functions.",
+  "homepage": "https://github.com/thinkingmedia/angular-assert",
+  "authors": [
+    "Mathew Foscarini <support@thinkingmedia.ca>"
+  ],
+  "keywords": [
+    "angularjs",
+    "angular-js",
+    "assert"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinkingmedia/angular-assert.git"
+  },
+  "dependencies": {
+    "angular": "*"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "package.json",
+    "README.md"
+  ],
+  "version": "1.0.1",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "ccf85e319f3f84840f43b88cc5b8bb21abfd592e"
+  },
+  "_source": "git://github.com/thinkingmedia/angular-assert.git",
+  "_target": "~1.0.1",
+  "_originalSource": "angular-assert"
+}

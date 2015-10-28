@@ -1,0 +1,23 @@
+@import "../../Config";
+
+@import "ToolbarInput/ToolbarInput";
+
+.ui-toolbar {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  &[inline] {
+    display: inline-block;
+    width: auto;
+  }
+
+  @each $unit in $ui-units {
+    &.ui-size-#{nth($unit,1)} {
+      height: nth($unit, 2);
+    }
+  }
+}

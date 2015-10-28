@@ -1,0 +1,24 @@
+.ui-columns {
+  display: table;
+  position: relative;
+  width: 100%;
+
+  &-row {
+    display: table-row;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.ui-column {
+  display: table-cell;
+  position: relative;
+  vertical-align: top;
+
+  &[grow] {
+    width: 100%;
+  }
+  &[shrink] {
+    width: auto;
+  }
+}

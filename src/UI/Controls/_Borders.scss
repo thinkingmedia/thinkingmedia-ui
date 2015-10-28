@@ -1,0 +1,30 @@
+@import "../Config";
+
+/**
+ * There are two types of borders. One for around controls, and one for around windows. They have different colors
+ * because each has a different background intensity.
+ *
+ * The window border color is as the default border style, but the control border color is used if .ui-control
+ * is present on the current or parent element.
+ *
+ * .ui-border-color - just sets the border color
+ * .ui-border sets all 4 borders
+ * .ui-border-top, left, right, bottom sets each individual side.
+ * .ui-border-horz, vert sets each parallel side.
+ **/
+
+@each $parent, $color in ('ui-window': $ui-wnd-border, 'ui-control': $ui-control-border) {
+  #{$parent} {
+    &.ui-border-color, .ui-border-color {
+      border-color: $color;
+    }
+    &.ui-border, .ui-border {
+      border: 1px solid $color;
+    }
+    @each $dir in ('top', 'bottom', 'left', 'right') {
+      &.ui-border-#{$dir}, .ui-border-#{$dir} {
+        border-#{$dir}: 1px solid $color;
+      }
+    }
+  }
+}

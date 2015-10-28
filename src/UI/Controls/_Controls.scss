@@ -1,0 +1,54 @@
+@import "../Config";
+
+@import "Button/Button";
+@import "Debug/Debug";
+@import "Divider/Divider";
+@import "Icon/Icon";
+@import "Menu/Menu";
+@import "Tabs/Tabs";
+@import "Toolbar/Toolbar";
+@import "ToolTip/ToolTip";
+
+@import "Borders";
+
+/**
+ * Base styles for UI controls.
+ */
+.ui-control-base {
+  @include user-select(none);
+}
+
+/**
+ * Parent container's background (i.e. toolbars, extra space on tabs).
+ */
+.ui-control-parent {
+  @extend .ui-control-base;
+  background-color: $ui-wnd-bg;  // maybe can be removed? wnd should be under this.
+}
+
+/**
+ * A single UI element that can be clicked by the user.
+ */
+.ui-control {
+  @extend .ui-control-base;
+  background-color: $ui-control;
+
+  &.ui-active {
+    background-color: lighten($ui-control, 5%);
+  }
+}
+
+/**
+ * A collection of UI elements where one or more elements can be activated. (i.e. tabs)
+ */
+.ui-control-group {
+  @extend .ui-control-base;
+  @extend .ui-control-parent;
+
+  .ui-control {
+    background-color: inherit;
+    &.ui-active {
+      background-color: $ui-control;
+    }
+  }
+}

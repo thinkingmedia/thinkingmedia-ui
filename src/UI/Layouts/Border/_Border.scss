@@ -1,0 +1,47 @@
+@import "../../Config";
+
+.ui-border-layout {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .ui-top {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+
+  .ui-left {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .ui-right {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .ui-center {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  .ui-bottom {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
