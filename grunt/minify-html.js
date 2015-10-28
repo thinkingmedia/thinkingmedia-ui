@@ -8,7 +8,6 @@ module.exports = function(grunt, tasks)
 				collapseWhitespace: true,
 				removeComments:     true
 			},
-
 			files: [
 				{
 					dest:    grunt.uriBuild + "html",
@@ -16,20 +15,8 @@ module.exports = function(grunt, tasks)
 					ext:     '.html',
 					flatten: false,
 					src:     [
-						grunt.uriSrc + '**/*.html'
+						grunt.uriSrc + '/**/*.html'
 					]
-				}
-			]
-		},
-		index: {
-			options: {
-				collapseWhitespace: true,
-				removeComments:     true
-			},
-			files:   [
-				{
-					dest: grunt.uri + "index.prod.html",
-					src:  grunt.uri + "index.prod.html"
 				}
 			]
 		}

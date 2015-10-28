@@ -18,7 +18,7 @@ module.exports = function(grunt, tasks)
 	files.push('!' + grunt.uriSrc + '**/*.Test.js');
 
 	tasks.concat.js = {
-		dest: grunt.uriBuild + 'js/today.js',
+		dest: grunt.dist + 'thinkingmedia-ui.js',
 		src:  files
 	};
 
