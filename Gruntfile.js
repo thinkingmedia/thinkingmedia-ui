@@ -77,7 +77,7 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.registerTask('publish-pages', 'Publish a clean build, docs, and sample to github.io', function () {
+    grunt.registerTask('publish', 'Publish a clean build, docs, and sample to github.io', function () {
         promising(this,
             ensureCleanMaster()
                 .then(function () {
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
         );
     });
 
-    grunt.registerTask('push-pages', 'Push published pages', function () {
+    grunt.registerTask('push', 'Push published pages', function () {
         promising(this,
             ensureCleanMaster().then(function () {
                 shjs.rm('-rf', 'build');
