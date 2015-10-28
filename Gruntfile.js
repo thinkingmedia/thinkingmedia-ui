@@ -1,3 +1,36 @@
+// Helpers for custom tasks, mainly around promises / exec
+var exec = require('faithful-exec');
+shjs = require('shelljs');
+
+function promising(task, promise) {
+    var done = task.async();
+    promise.then(function () {
+        done();
+    }, function (error) {
+        grunt.log.write(error + '\n');
+        done(false);
+    });
+}
+
+function system(cmd) {
+    grunt.log.write('% ' + cmd + '\n');
+    return exec(cmd).then(function (result) {
+        grunt.log.write(result.stderr + result.stdout);
+    }, function (error) {
+        grunt.log.write(error.stderr + '\n');
+        throw 'Failed to run \'' + cmd + '\'';
+    });
+}
+
+function ensureCleanMaster() {
+    return exec('git symbolic-ref HEAD').then(function (result) {
+        if (result.stdout.trim() !== 'refs/heads/master') throw 'Not on master branch, aborting';
+        return exec('git status --porcelain');
+    }).then(function (result) {
+        if (result.stdout.trim() !== '') throw 'Working copy is dirty, aborting';
+    });
+}
+
 module.exports = function (grunt) {
     // URI paths for our tasks to use
     grunt.dist = './dist/';
@@ -27,17 +60,18 @@ module.exports = function (grunt) {
     tasks = require(grunt.uriTask + 'minify-js.js')(grunt, tasks);
 
 
-    grunt.registerTask('docs', [
+    grunt.registerTask('docs', 'Generate documentation', [
         'ngdocs'
     ]);
 
-    grunt.registerTask('build', [
+    grunt.registerTask('build', 'Perform a normal build', [
         'clean',
         'sass:prod',
         'sass:dev',
         'htmlmin:prod',
         'concat:js',
-        'uglify:js'
+        'uglify:js',
+        'ngdocs'
     ]);
 
     grunt.registerTask('default', [
