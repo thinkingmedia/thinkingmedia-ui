@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                 }).then(function () {
                     return system('git add --all');
                 }).then(function () {
-                    return system('git commit -m \'Automatic gh-pages build\'');
+                    return system('git commit -m "Automatic gh-pages build"');
                 }).then(function () {
                     return system('git checkout master');
                 })
