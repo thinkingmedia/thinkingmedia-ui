@@ -34,7 +34,7 @@ NG_DOCS={
   "apis": {
     "api": true
   },
-  "html5Mode": false,
+  "html5Mode": true,
   "editExample": true,
   "startPage": "/api",
   "scripts": [
