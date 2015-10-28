@@ -2,41 +2,41 @@
 var exec = require('faithful-exec');
 var shjs = require('shelljs');
 
-function promising(task, promise) {
-    var done = task.async();
-    promise.then(function () {
-        done();
-    }, function (error) {
-        grunt.log.write(error + '\n');
-        done(false);
-    });
-}
-
-function system(cmd) {
-    grunt.log.write('% ' + cmd + '\n');
-    return exec(cmd).then(function (result) {
-        grunt.log.write(result.stderr + result.stdout);
-    }, function (error) {
-        grunt.log.write(error.stderr + '\n');
-        throw 'Failed to run \'' + cmd + '\'';
-    });
-}
-
-function ensureCleanMaster() {
-    return exec('git symbolic-ref HEAD').then(function (result) {
-        if (result.stdout.trim() !== 'refs/heads/master') throw 'Not on master branch, aborting';
-        return exec('git status --porcelain');
-    }).then(function (result) {
-        if (result.stdout.trim() !== '') throw 'Working copy is dirty, aborting';
-    });
-}
-
 module.exports = function (grunt) {
     // URI paths for our tasks to use
     grunt.dist = './dist/';
     grunt.uriTask = './grunt/';
     grunt.uriSrc = './src/UI';
     grunt.uriBuild = './build/';
+
+    function promising(task, promise) {
+        var done = task.async();
+        promise.then(function () {
+            done();
+        }, function (error) {
+            grunt.log.write(error + '\n');
+            done(false);
+        });
+    }
+
+    function system(cmd) {
+        grunt.log.write('% ' + cmd + '\n');
+        return exec(cmd).then(function (result) {
+            grunt.log.write(result.stderr + result.stdout);
+        }, function (error) {
+            grunt.log.write(error.stderr + '\n');
+            throw 'Failed to run \'' + cmd + '\'';
+        });
+    }
+
+    function ensureCleanMaster() {
+        return exec('git symbolic-ref HEAD').then(function (result) {
+            if (result.stdout.trim() !== 'refs/heads/master') throw 'Not on master branch, aborting';
+            return exec('git status --porcelain');
+        }).then(function (result) {
+            if (result.stdout.trim() !== '') throw 'Working copy is dirty, aborting';
+        });
+    }
 
     // Each task has it's own JS file.
     var tasks = {};
