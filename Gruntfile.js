@@ -1,6 +1,6 @@
 // Helpers for custom tasks, mainly around promises / exec
 var exec = require('faithful-exec');
-shjs = require('shelljs');
+var shjs = require('shelljs');
 
 function promising(task, promise) {
     var done = task.async();
@@ -59,7 +59,6 @@ module.exports = function (grunt) {
     tasks = require(grunt.uriTask + 'minify-html.js')(grunt, tasks);
     tasks = require(grunt.uriTask + 'minify-js.js')(grunt, tasks);
 
-
     grunt.registerTask('docs', 'Generate documentation', [
         'ngdocs'
     ]);
@@ -77,6 +76,37 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'build'
     ]);
+
+    grunt.registerTask('publish-pages', 'Publish a clean build, docs, and sample to github.io', function () {
+        promising(this,
+            ensureCleanMaster()
+                .then(function () {
+                    shjs.rm('-rf', 'build');
+                    return system('git checkout gh-pages');
+                }).then(function () {
+                    return system('git merge master');
+                }).then(function () {
+                    return system('grunt docs');
+                }).then(function () {
+                    return system('git commit -a -m \'Automatic gh-pages build\'');
+                }).then(function () {
+                    return system('git checkout master');
+                })
+        );
+    });
+
+    grunt.registerTask('push-pages', 'Push published pages', function () {
+        promising(this,
+            ensureCleanMaster().then(function () {
+                shjs.rm('-rf', 'build');
+                return system('git checkout gh-pages');
+            }).then(function () {
+                return system('git push origin gh-pages');
+            }).then(function () {
+                return system('git checkout master');
+            })
+        );
+    });
 
     // Initialize The Grunt Configuration
     grunt.initConfig(tasks);
