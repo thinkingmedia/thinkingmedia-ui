@@ -1,6 +1,14 @@
 /**
  * @ngdoc directive
  * @name ui.controls.uiDebug
+ *
+ * @description
+ *
+ * A developer tool that only displays debug information when the uiDebugService is set to display the info.
+ *
+ * @requires ui.services.uiDebugService
+ *
+ * @restrict E
  */
 (function (app) {
 

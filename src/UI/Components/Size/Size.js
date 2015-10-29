@@ -7,6 +7,22 @@
      *
      * Executes the expression when the size of an element has been changed.
      *
+     * # How It Works
+     *
+     * uiSize uses the uiLayout service to watch for changes in the size of the element the directive is assigned to.
+     * When a change is detected the expression is executed with variables that hold the current size.
+     *
+     * # Expression Variables
+     *
+     * - **$width** the width of the element.
+     * - **$height** the height of the element.
+     * - **$innerWidth** the inner width of the element.
+     * - **$innerHeight** the inner height of the element.
+     * - **$outerWidth** the outer width of the element.
+     * - **$outerHeight** the outer height of the element.
+     *
+     * @param {expression} uiSize The expression to execute.
+     *
      * @restrict A
      */
     app.directive('uiSize', [

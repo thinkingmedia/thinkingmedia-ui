@@ -1,14 +1,23 @@
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiButton
+ * @description
+ *
+ * Handles the rendering of a UI button.
+ *
+ * ## Size Inheritance
+ *
+ * Buttons, Toolbars and other UI controls can be shown using different sizes. When a uiButton is a child of uiToolbar
+ * it can inherit the size setting from uiToolbar.
+ *
+ * @requires ui.services.uiSize
+ *
+ * @param {string} size The size for the button (can be inherited)
+ *
+ * @restrict E
+ */
 (function (app) {
 
-    /**
-     * @ngdoc directive
-     * @name ui.controls.uiButton
-     * @description
-     *
-     * A button control.
-     *
-     * @restrict E
-     */
     app.directive('uiButton', [
         '$uiSize',
         function (/** UI.Size */$uiSize) {

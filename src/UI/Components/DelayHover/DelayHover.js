@@ -9,6 +9,8 @@
  * @param {expression} uiDelayHover The expression to execute after hover timeout.
  * @param {string=} uiDelayTime How long to delay before executing the expression (default is 500ms).
  *
+ * @todo Add a provider to can be used to set the default hover time.
+ *
  */
 (function (app) {
 
