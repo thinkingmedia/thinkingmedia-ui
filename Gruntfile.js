@@ -83,6 +83,14 @@ module.exports = function (grunt) {
                 .then(function () {
                     return system('git checkout gh-pages');
                 }).then(function () {
+                    return system('rm -rf css');
+                }).then(function () {
+                    return system('rm -rf font');
+                }).then(function () {
+                    return system('rm -rf js');
+                }).then(function () {
+                    return system('rm -rf partials');
+                }).then(function () {
                     return system('cp -R -u -v docs/* .');
                 }).then(function () {
                     return system('git add --all');
