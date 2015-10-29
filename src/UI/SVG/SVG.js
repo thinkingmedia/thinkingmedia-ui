@@ -1,13 +1,7 @@
+/**
+ * @ngdoc overview
+ * @name ui.svg
+ */
 (function (app) {
 
-    app.provider('d3', [
-        function () {
-            this.$get = [
-                '$window',
-                function ($window) {
-                    return $window.d3;
-                }]
-        }
-    ]);
-
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg',[]));

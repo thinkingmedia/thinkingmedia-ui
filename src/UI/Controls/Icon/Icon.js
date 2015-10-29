@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiIcon
+ */
 (function (app) {
 
     app.directive('uiIcon', [
@@ -38,4 +42,4 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

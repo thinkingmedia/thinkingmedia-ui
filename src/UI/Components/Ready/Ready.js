@@ -1,5 +1,16 @@
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiReady
+     * @description
+     *
+     * Executes the expression after the template has been compiled and digested.
+     *
+     * @param {expression} uiReady The expression to execute.
+     *
+     * @restrict A
+     */
     app.directive('uiReady', [
         '$timeout',
         function ($timeout) {
@@ -22,4 +33,4 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));

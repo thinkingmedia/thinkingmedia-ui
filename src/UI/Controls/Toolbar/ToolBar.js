@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiToolbar
+ */
 (function (app) {
 
     app.directive('uiToolbar', [
@@ -33,4 +37,4 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

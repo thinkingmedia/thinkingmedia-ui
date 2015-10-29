@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiDivider
+ */
 (function (app) {
 
     /**
@@ -77,4 +81,4 @@
         directive
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

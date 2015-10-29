@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiLayout
+ */
 (function (app) {
 
     app.directive('uiLayout', [
@@ -44,4 +48,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.layouts'));

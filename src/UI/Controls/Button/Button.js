@@ -1,5 +1,14 @@
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.controls.uiButton
+     * @description
+     *
+     * A button control.
+     *
+     * @restrict E
+     */
     app.directive('uiButton', [
         '$uiSize',
         function (/** UI.Size */$uiSize) {
@@ -47,4 +56,4 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

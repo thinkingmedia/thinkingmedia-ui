@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiGrid
+ */
 (function (app) {
 
     app.directive('uiSvgGrid', [
@@ -15,4 +19,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));

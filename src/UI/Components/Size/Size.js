@@ -1,5 +1,14 @@
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiSize
+     * @description
+     *
+     * Executes the expression when the size of an element has been changed.
+     *
+     * @restrict A
+     */
     app.directive('uiSize', [
         'uiLayout',
         function (/** UI.uiLayout*/uiLayout) {
@@ -34,4 +43,4 @@
             };
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));

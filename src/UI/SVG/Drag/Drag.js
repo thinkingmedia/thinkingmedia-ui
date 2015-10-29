@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgDrag
+ */
 (function (app) {
 
     app.directive('uiSvgDrag', [
@@ -49,4 +53,4 @@
         }
     ])
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));

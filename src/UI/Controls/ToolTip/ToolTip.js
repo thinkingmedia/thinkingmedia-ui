@@ -1,5 +1,6 @@
 /**
- * @namespace UI.ToolTip
+ * @ngdoc directive
+ * @name ui.controls.uiToolTip
  */
 (function (app) {
 

@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.factories.$modalContextFactory
+ */
 (function (app) {
 
     /**

@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiSize
+ */
 (function (app) {
 
     /**
@@ -56,4 +60,4 @@
         }
     }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

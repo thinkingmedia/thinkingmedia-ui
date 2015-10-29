@@ -1,5 +1,6 @@
 /**
- * @namespace UI.Menu
+ * @ngdoc directive
+ * @name ui.controls.uiMenu
  */
 (function (app) {
 
@@ -65,4 +66,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

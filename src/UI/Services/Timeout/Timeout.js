@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiTimeout
+ */
 (function (app) {
 
     app.provider('$uiTimeout',
@@ -72,4 +76,4 @@
                 }]
         });
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

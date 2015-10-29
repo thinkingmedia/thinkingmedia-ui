@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.svg.$svgTurtle
+ */
 (function (app) {
 
     var goRight = {

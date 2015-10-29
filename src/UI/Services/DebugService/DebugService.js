@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiDebugService
+ */
 (function (app) {
 
     /**
@@ -55,4 +59,4 @@
         DebugProvider
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

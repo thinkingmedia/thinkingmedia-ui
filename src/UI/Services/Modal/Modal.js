@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiModal
+ */
 (function (app) {
 
     /**
@@ -185,4 +189,4 @@
         uiModal
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

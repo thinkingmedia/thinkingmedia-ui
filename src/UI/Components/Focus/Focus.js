@@ -1,5 +1,17 @@
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiFocus
+     *
+     * @description
+     *
+     * Calls `el.focus()` in the next digest cycle to set the user focus.
+     *
+     * @restrict A
+     * @element input
+     *
+     */
     app.directive('uiFocus', [
         '$timeout',
         function ($timeout) {
@@ -22,4 +34,4 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));

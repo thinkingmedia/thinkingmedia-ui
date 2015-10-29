@@ -1,8 +1,10 @@
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiDebug
+ */
 (function (app) {
 
     /**
-     * @name UI.uiDebug
-     *
      * @param {$assert} $assert
      * @param {angular.ILogService} $log
      * @param {UI.uiDebugService} uiDebugService
@@ -79,4 +81,4 @@
         uiDebugDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

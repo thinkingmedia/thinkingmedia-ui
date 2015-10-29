@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiLayout
+ */
 (function (app) {
 
     /**
@@ -170,4 +174,4 @@
         LayoutService
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

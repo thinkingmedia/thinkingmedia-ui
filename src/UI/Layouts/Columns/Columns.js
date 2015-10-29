@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiColumns
+ */
 (function (app) {
 
     /**

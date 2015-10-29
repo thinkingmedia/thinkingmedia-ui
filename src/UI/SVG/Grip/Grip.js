@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgGrip
+ */
 (function (app) {
 
     app.directive('uiSvgGrip', [
@@ -38,4 +42,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));

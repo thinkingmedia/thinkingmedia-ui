@@ -1,5 +1,6 @@
 /**
- * @namespace UI.ToolbarInput
+ * @ngdoc directive
+ * @name ui.controls.uiToolbarInput
  */
 (function (app) {
 

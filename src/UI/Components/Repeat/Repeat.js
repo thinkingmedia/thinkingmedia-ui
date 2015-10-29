@@ -1,7 +1,23 @@
 (function (app) {
 
     /**
+     * @ngdoc directive
+     * @name ui.components.uiRepeat
+     * @description
+     *
      * Adds CSS classes for ngRepeat first, last, odd and even.
+     *
+     * @restrict A
+     *
+     * @param {string=} uiRepeat A prefix for the CSS class names (default is "ui-repeat").
+     *
+     * @example
+     <example name="uiRepeat-directive">
+         <file name="index.html">
+             <div ng-repeat="item in items" ui-repeat="item">
+             </div>
+         </file>
+     </example>
      */
     app.directive('uiRepeat', [
         function () {
@@ -27,4 +43,4 @@
             };
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));

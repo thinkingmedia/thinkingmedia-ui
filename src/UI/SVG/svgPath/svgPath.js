@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.svg.$svgPath
+ */
 (function (app) {
 
     app.factory('$svgPath', [

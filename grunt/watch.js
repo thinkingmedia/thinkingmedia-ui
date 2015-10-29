@@ -5,8 +5,8 @@ module.exports = function(grunt, tasks)
 	tasks.watch = {
 		sass:    {
 			files:   [
-				grunt.uriSrc + "**/*.sass",
-				grunt.uriSrc + "**/*.scss"
+				grunt.uriSrc + "/**/*.sass",
+				grunt.uriSrc + "/**/*.scss"
 			],
 			tasks:   [
 				'sass:dev'
@@ -16,7 +16,20 @@ module.exports = function(grunt, tasks)
 				spawn:     false,
 				interrupt: true
 			}
-		}
+		},
+        docs: {
+            files:   [
+                grunt.uriSrc + "/**/*.js"
+            ],
+            tasks:   [
+                'docs'
+            ],
+            options: {
+                atBegin:   true,
+                spawn:     false,
+                interrupt: true
+            }
+        }
 	};
 
 	return tasks;

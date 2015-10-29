@@ -1,3 +1,8 @@
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgZoom
+ * @requires ui.svg.d3
+ */
 (function (app) {
 
     app.directive('uiSvgZoom', [

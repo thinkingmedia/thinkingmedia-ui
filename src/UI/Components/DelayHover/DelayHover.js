@@ -1,8 +1,14 @@
 /**
  * @ngdoc directive
- * @name UI.uiDelayHover
+ * @name ui.components.uiDelayHover
+ * @restrict A
+ *
  * @description
- * Executes the expression after hovering for 500ms or the value of ui-delay-time attribute.
+ * Executes the expression after the mouse hovers over the element for 500ms or the value of ui-delay-time attribute.
+ *
+ * @param {expression} uiDelayHover The expression to execute after hover timeout.
+ * @param {string=} uiDelayTime How long to delay before executing the expression (default is 500ms).
+ *
  */
 (function (app) {
 
@@ -51,4 +57,4 @@
         uiDelayHoverDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));

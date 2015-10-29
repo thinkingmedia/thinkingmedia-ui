@@ -1,3 +1,7 @@
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiBorder
+ */
 (function (app) {
 
     /**
@@ -68,6 +72,10 @@
         BorderDirective
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiLeft
+     */
     app.directive('uiLeft', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -94,6 +102,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiRight
+     */
     app.directive('uiRight', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -120,6 +132,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiTop
+     */
     app.directive('uiTop', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -140,6 +156,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiBottom
+     */
     app.directive('uiBottom', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -160,6 +180,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiCenter
+     */
     app.directive('uiCenter', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -182,4 +206,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.layouts'));

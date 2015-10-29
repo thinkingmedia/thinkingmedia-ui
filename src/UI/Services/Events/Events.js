@@ -1,3 +1,7 @@
+/**
+ * @ngdoc service
+ * @name ui.services.uiEvents
+ */
 (function (app) {
     /**
      * @name UI.Events
@@ -110,4 +114,4 @@
         _service
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services'));

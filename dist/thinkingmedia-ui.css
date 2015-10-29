@@ -219,56 +219,6 @@
 .ui-width-2-buttons {
   width: 56px; }
 
-/* line 5, ../src/UI/Controls/Tabs/_Tabs.scss */
-.ui-tabs {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%; }
-  /* line 11, ../src/UI/Controls/Tabs/_Tabs.scss */
-  .ui-tabs-names {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 0; }
-  /* line 18, ../src/UI/Controls/Tabs/_Tabs.scss */
-  .ui-tabs-name {
-    display: inline-block;
-    height: 24px;
-    cursor: pointer;
-    font-size: 12px; }
-    /* line 24, ../src/UI/Controls/Tabs/_Tabs.scss */
-    .ui-tabs-name .txt, .ui-tabs-name .ui-button {
-      display: inline-block;
-      overflow: hidden;
-      height: 24px; }
-    /* line 29, ../src/UI/Controls/Tabs/_Tabs.scss */
-    .ui-tabs-name .txt {
-      padding: 0 8px;
-      line-height: 24px; }
-  /* line 35, ../src/UI/Controls/Tabs/_Tabs.scss */
-  .ui-tabs-tools {
-    position: absolute;
-    top: 0;
-    right: 0; }
-  /* line 41, ../src/UI/Controls/Tabs/_Tabs.scss */
-  .ui-tabs-tab {
-    position: absolute;
-    top: 24px;
-    bottom: 0;
-    left: 0;
-    right: 0; }
-
-/* http://www.materialpalette.com/blue-grey/teal */
-/* line 23, ../src/UI/_Values.scss */
-.ui-width-2-buttons {
-  width: 56px; }
-
-/* http://www.materialpalette.com/blue-grey/teal */
-/* line 23, ../src/UI/_Values.scss */
-.ui-width-2-buttons {
-  width: 56px; }
-
 /* line 3, ../src/UI/Controls/Toolbar/ToolbarInput/_ToolbarInput.scss */
 .ui-toolbar-input {
   display: inline-block;
@@ -397,7 +347,7 @@ ui-control.ui-border-right, ui-control .ui-border-right {
 /**
  * Base styles for UI controls.
  */
-/* line 17, ../src/UI/Controls/_Controls.scss */
+/* line 16, ../src/UI/Controls/_Controls.scss */
 .ui-control-base, .ui-control-parent, .ui-control-group, .ui-control {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -407,27 +357,27 @@ ui-control.ui-border-right, ui-control .ui-border-right {
 /**
  * Parent container's background (i.e. toolbars, extra space on tabs).
  */
-/* line 24, ../src/UI/Controls/_Controls.scss */
+/* line 23, ../src/UI/Controls/_Controls.scss */
 .ui-control-parent, .ui-control-group {
   background-color: #484848; }
 
 /**
  * A single UI element that can be clicked by the user.
  */
-/* line 32, ../src/UI/Controls/_Controls.scss */
+/* line 31, ../src/UI/Controls/_Controls.scss */
 .ui-control {
   background-color: #656565; }
-  /* line 36, ../src/UI/Controls/_Controls.scss */
+  /* line 35, ../src/UI/Controls/_Controls.scss */
   .ui-control.ui-active {
     background-color: #727272; }
 
 /**
  * A collection of UI elements where one or more elements can be activated. (i.e. tabs)
  */
-/* line 48, ../src/UI/Controls/_Controls.scss */
+/* line 47, ../src/UI/Controls/_Controls.scss */
 .ui-control-group .ui-control {
   background-color: inherit; }
-  /* line 50, ../src/UI/Controls/_Controls.scss */
+  /* line 49, ../src/UI/Controls/_Controls.scss */
   .ui-control-group .ui-control.ui-active {
     background-color: #656565; }
 

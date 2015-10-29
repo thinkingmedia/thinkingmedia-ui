@@ -1,5 +1,6 @@
 /**
- * @namespace UI.MenuItems
+ * @ngdoc directive
+ * @name ui.controls.uiMenuItems
  */
 (function (app) {
 
