@@ -81,6 +81,8 @@ module.exports = function (grunt) {
         promising(this,
             ensureCleanMaster()
                 .then(function () {
+                    return system('cp -R -u -v docs/* build/docs');
+                }).then(function () {
                     return system('git checkout gh-pages');
                 }).then(function () {
                     return system('rm -rf css');
@@ -91,7 +93,7 @@ module.exports = function (grunt) {
                 }).then(function () {
                     return system('rm -rf partials');
                 }).then(function () {
-                    return system('cp -R -u -v docs/* .');
+                    return system('cp -R -u -v build/docs/* .');
                 }).then(function () {
                     return system('git add --all');
                 }).then(function () {
