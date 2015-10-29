@@ -1,118 +1,126 @@
 /**
- * @ngdoc service
- * @name rfx.rest
+ * @ngdoc overview
+ * @name ui
+ *
+ * @requires ui.components
+ * @requires ui.controls
+ * @requires ui.factories
+ * @requires ui.layouts
+ * @requires ui.services
+ * @requires ui.styles
+ * @requires ui.SVG
+ *
  * @description
- * # rest
- * Service to talk with backend api.
+ *
+ * # ThinkingMedia-UI
+ *
+ * You have to load the module JS file, and also the compiled CSS file. This module can be loaded as a
+ * dependency for your app by using the name `thinkingmedia.ui`.
+ *
+ * <pre>
+ * <!doctype html>
+ * <html ng-app="myApp">
+ * <head>
+ *   <!-- Include the thinkingmedia-ui styles -->
+ *   <link rel="stylesheet" href="css/thinkingmedia-ui.min.css" type="text/css"/>
+ *   <script src="js/angular.js"></script>
+ *   <!-- Include the thinkingmedia-ui script -->
+ *   <script src="js/thinkingmedia-ui.min.js"></script>
+ *   <script>
+ *     // ...and add 'thinkingmedia.ui' as a dependency
+ *     var myApp = angular.module('myApp', ['thinkingmedia.ui']);
+ *   </script>
+ * </head>
+ * <body>
+ * </body>
+ * </html>
+ * </pre>
  */
 (function(app){
 
-
-    /**
-     * @ngdoc directive
-     * @name rfx.directive:rAutogrow
-     * @element textarea
-     * @function
-     *
-     * @description
-     * Resize textarea automatically to the size of its text content.
-     *
-     * @example
-     <example module="rfx">
-     <file name="index.html">
-     <textarea ng-model="text" r-autogrow class="input-block-level"></textarea>
-     <pre>{{text}}</pre>
-     </file>
-     </example>
-     */
-
-    function UI() {
-
-    }
-
-    /**
-     * @ngdoc
-     * @name rfx.rest#get
-     * @methodOf rfx.rest
-     *
-     * @description
-     * Method to get data form the backend api
-     * @example
-     * rest.get(id);
-     * @param {int} entity id
-     * @returns {httpPromise} resolve with fetched data, or fails with error description.
-     */    app.run([
-        UI
-    ]);
-
-})(angular.module('UI',[
+})(angular.module('thinkingmedia.ui',[
+    'thinkingmedia.ui.components',
+    'thinkingmedia.ui.controls',
+    'thinkingmedia.ui.factories',
+    'thinkingmedia.ui.layouts',
+    'thinkingmedia.ui.services',
+    'thinkingmedia.ui.styles',
+    'thinkingmedia.ui.svg',
     'ngAssert'
 ]));
+/**
+ * @ngdoc overview
+ * @name ui.components
+ *
+ * @description
+ *
+ * # UI-Components
+ *
+ * A component is a directive that has no template. They are often small directives that perform a simple single task.
+ *
+ */
+ (function(app){
+
+})(angular.module('thinkingmedia.ui.components',[]));
+/**
+ * @ngdoc overview
+ * @name ui.controls
+ * @description
+ *
+ * ## UI-Controls
+ *
+ * Controls are directives that use a template or compile inner HTML. They are often things like buttons, cards or forms.
+ */
+(function(app){
+
+})(angular.module('thinkingmedia.ui.controls',[]));
+/**
+ * @ngdoc overview
+ * @name ui.factories
+ *
+ * @description
+ *
+ * ## UI-Factories
+ *
+ * These are Angular factory classes that allow you to inject a constructor function.
+ */
+(function(app){
+
+})(angular.module('thinkingmedia.ui.factories',[]));
+/**
+ * @ngdoc overview
+ * @name ui.layouts
+ */
+(function(app){
+
+})(angular.module('thinkingmedia.ui.layouts',[]));
+/**
+ * @ngdoc overview
+ * @name ui.svg
+ */
 (function (app) {
 
-    app.directive('uiLayout', [
-        '$uiLayoutManager',
-        '$uiModal',
-        function (/** UI.LayoutManager */$uiLayoutManage,/** UI.Modal */$uiModal) {
+})(angular.module('thinkingmedia.ui.svg',[]));
+/**
+ * @ngdoc overview
+ * @name ui.services
+ */
+(function(app){
 
-            /**
-             * @param {angular.IScope} scope
-             * @param {Element[]} el
-             * @param {$compile.directive.Attributes} attr
-             * @private
-             */
-            function _link(scope, el, attr) {
-                attr.$addClass('ui-layout');
-
-                var $el = angular.element(el);
-
-                scope.$watch('name', function (name) {
-                    $el.empty();
-                    if (!name) {
-                        return;
-                    }
-                    $uiModal.appendTo($el,{
-                        template: '<ui-window-stack desc="desc" no-close></ui-window-stack>',
-                        controller: [
-                            '$scope',
-                            function($scope) {
-                                var options = $uiLayoutManage.get(name);
-                                $scope.desc = options.main;
-                            }
-                        ]
-                    });
-                });
-            }
-
-            return {
-                restrict: 'E',
-                scope: {
-                    'name': '@'
-                },
-                link: _link
-            }
-        }
-    ]);
-
-})(angular.module('UI'));
-(function (app) {
-
-    app.provider('d3', [
-        function () {
-            this.$get = [
-                '$window',
-                function ($window) {
-                    return $window.d3;
-                }]
-        }
-    ]);
-
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.services',[]));
 /**
  * @ngdoc directive
- * @name UI.uiDelayHover
+ * @name ui.components.uiDelayHover
+ * @restrict A
+ *
  * @description
- * Executes the expression after hovering for 500ms or the value of ui-delay-time attribute.
+ * Executes the expression after the mouse hovers over the element for 500ms or the value of ui-delay-time attribute.
+ *
+ * @param {expression} uiDelayHover The expression to execute after hover timeout.
+ * @param {string=} uiDelayTime How long to delay before executing the expression (default is 500ms).
+ *
+ * @todo Add a provider to can be used to set the default hover time.
+ *
  */
 (function (app) {
 
@@ -161,9 +169,21 @@
         uiDelayHoverDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiFocus
+     *
+     * @description
+     *
+     * Calls `el.focus()` in the next digest cycle to set the user focus.
+     *
+     * @restrict A
+     * @element input
+     *
+     */
     app.directive('uiFocus', [
         '$timeout',
         function ($timeout) {
@@ -186,9 +206,20 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiReady
+     * @description
+     *
+     * Executes the expression after the template has been compiled and digested.
+     *
+     * @param {expression} uiReady The expression to execute.
+     *
+     * @restrict A
+     */
     app.directive('uiReady', [
         '$timeout',
         function ($timeout) {
@@ -211,11 +242,40 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));
 (function (app) {
 
     /**
-     * Adds CSS classes for ngRepeat first, last, odd and even.
+     * @ngdoc directive
+     * @name ui.components.uiRepeat
+     * @description
+     *
+     * Place this attribute directive on any element that has an `ng-repeat` on it, and it will add CSS classes
+     * for the different element states in the repeat set.
+     *
+     * # Example
+     *
+     * - **ui-repeat-first** is added when **$first** is true.
+     * - **ui-repeat-last** is added when **$last** is true.
+     * - **ui-repeat-odd** is added when **$odd** is true.
+     * - **ui-repeat-even** is added when **$even** is true.
+     *
+     * # Prefix Name
+     *
+     * By default, the string **"ui-repeat"** is prefixed before the different CSS classes, but you can change this
+     * string value by assigning a value to the `ui-repeat` attribute.
+     *
+     * @restrict A
+     *
+     * @param {string=} uiRepeat A prefix for the CSS class names (default is "ui-repeat").
+     *
+     * @example
+     <example name="uiRepeat-directive">
+     <file name="index.html">
+     <div ng-repeat="item in items" ui-repeat="item">
+     </div>
+     </file>
+     </example>
      */
     app.directive('uiRepeat', [
         function () {
@@ -241,9 +301,34 @@
             };
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));
 (function (app) {
 
+    /**
+     * @ngdoc directive
+     * @name ui.components.uiSize
+     * @description
+     *
+     * Executes the expression when the size of an element has been changed.
+     *
+     * # How It Works
+     *
+     * uiSize uses the uiLayout service to watch for changes in the size of the element the directive is assigned to.
+     * When a change is detected the expression is executed with variables that hold the current size.
+     *
+     * # Expression Variables
+     *
+     * - **$width** the width of the element.
+     * - **$height** the height of the element.
+     * - **$innerWidth** the inner width of the element.
+     * - **$innerHeight** the inner height of the element.
+     * - **$outerWidth** the outer width of the element.
+     * - **$outerHeight** the outer height of the element.
+     *
+     * @param {expression} uiSize The expression to execute.
+     *
+     * @restrict A
+     */
     app.directive('uiSize', [
         'uiLayout',
         function (/** UI.uiLayout*/uiLayout) {
@@ -278,59 +363,25 @@
             };
         }]);
 
-})(angular.module('UI'));
-(function (app) {
-
-    app.directive('uiWheel', [
-        '$parse',
-        function ($parse) {
-            return {
-                restrict: 'A',
-                link: function (scope, element, attr) {
-
-                    var expr = $parse(attr['uiWheel']),
-                        fn = function (event, delta, deltaX, deltaY) {
-                            scope.$apply(function () {
-                                expr(scope, {
-                                    $event: event,
-                                    $delta: delta,
-                                    $deltaX: deltaX,
-                                    $deltaY: deltaY
-                                });
-                            });
-                        },
-                        hamster;
-
-                    if (typeof Hamster === 'undefined') {
-                        // fallback to standard wheel event
-                        element.bind('wheel', function (event) {
-                            scope.$apply(function () {
-                                expr(scope, {
-                                    $event: event
-                                });
-                            });
-                        });
-                        return;
-                    }
-
-                    // don't create multiple Hamster instances per element
-                    if (!(hamster = element.data('hamster'))) {
-                        hamster = Hamster(element[0]);
-                        element.data('hamster', hamster);
-                    }
-
-                    // bind Hamster wheel event
-                    hamster.wheel(fn);
-
-                    // unbind Hamster wheel event
-                    scope.$on('$destroy', function () {
-                        hamster.unwheel(fn);
-                    });
-                }
-            }
-        }]);
-
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.components'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiButton
+ * @description
+ *
+ * Handles the rendering of a UI button.
+ *
+ * ## Size Inheritance
+ *
+ * Buttons, Toolbars and other UI controls can be shown using different sizes. When a uiButton is a child of uiToolbar
+ * it can inherit the size setting from uiToolbar.
+ *
+ * @requires ui.services.uiSize
+ *
+ * @param {string} size The size for the button (can be inherited)
+ *
+ * @restrict E
+ */
 (function (app) {
 
     app.directive('uiButton', [
@@ -380,12 +431,22 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiDebug
+ *
+ * @description
+ *
+ * A developer tool that only displays debug information when the uiDebugService is set to display the info.
+ *
+ * @requires ui.services.uiDebugService
+ *
+ * @restrict E
+ */
 (function (app) {
 
     /**
-     * @name UI.uiDebug
-     *
      * @param {$assert} $assert
      * @param {angular.ILogService} $log
      * @param {UI.uiDebugService} uiDebugService
@@ -462,7 +523,11 @@
         uiDebugDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiDivider
+ */
 (function (app) {
 
     /**
@@ -542,7 +607,11 @@
         directive
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiIcon
+ */
 (function (app) {
 
     app.directive('uiIcon', [
@@ -583,9 +652,10 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
 /**
- * @namespace UI.Menu
+ * @ngdoc directive
+ * @name ui.controls.uiMenu
  */
 (function (app) {
 
@@ -651,140 +721,10 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
 /**
- * @namespace UI.Tabs
- */
-(function (app) {
-
-    app.directive('uiTabs', [
-        '$log',
-        '$uiWindows',
-        function ($log, /** UI.Windows */$uiWindows) {
-
-            /**
-             * @name UI.Tabs.Scope
-             *
-             * @property {Array.<UI.Tabs.Tab>} tabs
-             * @property {{active:number,showNav:boolean,maxWidth:number}} model
-             * @property {Array.<UI.Windows.Options>} windows
-             * @property {UI.DescTabs} desc
-             */
-
-            /**
-             * @name UI.Tabs.Tab
-             *
-             * @param {number} id
-             *
-             * @constructor
-             */
-            var Tab = function (id) {
-                this.options = $uiWindows.get(id);
-                this.width = 0;
-                this.visible = true;
-                this.title = 'loading...';
-            };
-
-            /**
-             * @name UI.Tabs.Controller
-             *
-             * @param {UI.Tabs.Scope} $scope
-             */
-            function controller($scope) {
-                $scope.tabs = [];
-
-                if($scope.desc) {
-                    $scope.tabs = _.map($scope.desc.toArray(),function(id){
-                        return new Tab(id);
-                    });
-                }
-
-                $scope.windows = $uiWindows.getOptions();
-
-                $scope.model = {};
-                $scope.model.active = 0;
-                $scope.model.showNav = false;
-
-                /**
-                 * @param {number} id
-                 */
-                this.add = function (id) {
-                    $log.debug('$uiTabs::add ' + id);
-                    $scope.tabs.push(new Tab(id));
-                    $scope.model.active = $scope.tabs.length - 1;
-                };
-
-                this.next = function () {
-                    $log.debug('$uiTabs::next');
-                    if ($scope.model.active < $scope.tabs.length - 1) {
-                        $scope.model.active++;
-                    }
-                };
-
-                this.prev = function () {
-                    $log.debug('$uiTabs::prev');
-                    if ($scope.model.active > 0) {
-                        $scope.model.active--;
-                    }
-                };
-
-                this.remove = function (indx) {
-                    $log.debug('$uiTabs::remove');
-                    //$scope.active = $scope.active == 0 ? 0 : $scope.active - 1;
-                };
-
-                this.updateNav = function () {
-                    var sum = 0;
-                    var count = 0;
-                    _.each($scope.tabs, function (tab) {
-                        sum += tab.width;
-                        tab.visible = sum < $scope.model.maxWidth;
-                        if (tab.visible) {
-                            count++;
-                        }
-                    });
-                    $scope.model.showNav = count != $scope.tabs.length;
-                }
-            }
-
-            /**
-             * @param {UI.Tabs.Scope} scope
-             * @param {Array.<Element>} el
-             * @param {$compile.directive.Attributes} attr
-             * @param {UI.Tabs.Controller} $uiTabs
-             * @private
-             */
-            function _link(scope, el, attr, $uiTabs) {
-                attr.$addClass('ui-tabs');
-
-                scope.$watch('model.maxWidth', function () {
-                    $uiTabs.updateNav();
-                });
-                scope.$watchCollection('tabs', function () {
-                    $uiTabs.updateNav();
-                })
-            }
-
-            return {
-                restrict: 'E',
-                transclude: true,
-                scope: {
-                    'desc': '='
-                },
-                link: _link,
-                controller: [
-                    '$scope',
-                    controller
-                ],
-                controllerAs: '$uiTabs',
-                templateUrl: '/src/UI/Controls/Tabs/Tabs.html'
-            }
-        }
-    ]);
-
-})(angular.module('UI'));
-/**
- * @namespace UI.ToolTip
+ * @ngdoc directive
+ * @name ui.controls.uiToolTip
  */
 (function (app) {
 
@@ -864,6 +804,10 @@
     ]);
 
 })(angular.module('UI'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiToolbar
+ */
 (function (app) {
 
     app.directive('uiToolbar', [
@@ -899,7 +843,11 @@
             }
         }]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
+/**
+ * @ngdoc service
+ * @name ui.factories.$modalContextFactory
+ */
 (function (app) {
 
     /**
@@ -996,6 +944,10 @@
     ]);
 
 })(angular.module('UI'));
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiBorder
+ */
 (function (app) {
 
     /**
@@ -1066,6 +1018,10 @@
         BorderDirective
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiLeft
+     */
     app.directive('uiLeft', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -1092,6 +1048,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiRight
+     */
     app.directive('uiRight', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -1118,6 +1078,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiTop
+     */
     app.directive('uiTop', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -1138,6 +1102,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiBottom
+     */
     app.directive('uiBottom', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -1158,6 +1126,10 @@
         }
     ]);
 
+    /**
+     * @ngdoc directive
+     * @name ui.layouts.uiCenter
+     */
     app.directive('uiCenter', [
         'uiLayout',
         function (/**UI.uiLayout*/uiLayout) {
@@ -1180,7 +1152,11 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.layouts'));
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiColumns
+ */
 (function (app) {
 
     /**
@@ -1256,6 +1232,61 @@
     ]);
 
 })(angular.module('UI'));
+/**
+ * @ngdoc directive
+ * @name ui.layouts.uiLayout
+ */
+(function (app) {
+
+    app.directive('uiLayout', [
+        '$uiLayoutManager',
+        '$uiModal',
+        function (/** UI.LayoutManager */$uiLayoutManage,/** UI.Modal */$uiModal) {
+
+            /**
+             * @param {angular.IScope} scope
+             * @param {Element[]} el
+             * @param {$compile.directive.Attributes} attr
+             * @private
+             */
+            function _link(scope, el, attr) {
+                attr.$addClass('ui-layout');
+
+                var $el = angular.element(el);
+
+                scope.$watch('name', function (name) {
+                    $el.empty();
+                    if (!name) {
+                        return;
+                    }
+                    $uiModal.appendTo($el,{
+                        template: '<ui-window-stack desc="desc" no-close></ui-window-stack>',
+                        controller: [
+                            '$scope',
+                            function($scope) {
+                                var options = $uiLayoutManage.get(name);
+                                $scope.desc = options.main;
+                            }
+                        ]
+                    });
+                });
+            }
+
+            return {
+                restrict: 'E',
+                scope: {
+                    'name': '@'
+                },
+                link: _link
+            }
+        }
+    ]);
+
+})(angular.module('thinkingmedia.ui.layouts'));
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgDrag
+ */
 (function (app) {
 
     app.directive('uiSvgDrag', [
@@ -1307,7 +1338,11 @@
         }
     ])
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiGrid
+ */
 (function (app) {
 
     app.directive('uiSvgGrid', [
@@ -1325,7 +1360,11 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgGrip
+ */
 (function (app) {
 
     app.directive('uiSvgGrip', [
@@ -1366,7 +1405,12 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
+/**
+ * @ngdoc directive
+ * @name ui.svg.uiSvgZoom
+ * @requires ui.svg.d3
+ */
 (function (app) {
 
     app.directive('uiSvgZoom', [
@@ -1391,672 +1435,27 @@
     ])
 
 })(angular.module('UI'));
+/**
+ * @ngdoc service
+ * @name ui.svg.d3
+ */
 (function (app) {
 
-    /**
-     * @name UI.uiDebugService
-     *
-     * @param {boolean} isEnabled
-     *
-     * @constructor
-     */
-    function DebugService(isEnabled) {
-        var _show = false;
-        /**
-         * @param {boolean|string} value
-         * @returns {UI.uiDebugService}
-         */
-        this.setDebug = function (value) {
-            _show = angular.isString(value) ? value === 'true' : !!value;
-            return this;
-        };
-        /**
-         * @returns {boolean}
-         */
-        this.getDebug = function () {
-            return isEnabled && _show;
-        };
-
-        /**
-         * @returns {boolean}
-         */
-        this.isEnabled = function () {
-            return isEnabled;
-        }
-    }
-
-    /**
-     * @name UI.uiDebugProvider
-     */
-    function DebugProvider() {
-
-        var _enabled = false;
-
-        /**
-         * @param {boolean} value
-         */
-        this.setEnabled = function(value) {
-            _enabled = !!value;
-        };
-
-        this.$get = function () {
-            return new DebugService(_enabled);
-        };
-    }
-
-    app.provider('uiDebugService', [
-        DebugProvider
-    ]);
-
-})(angular.module('UI'));
-(function (app) {
-    /**
-     * @name UI.Events
-     *
-     * @constructor
-     */
-    function _service() {
-        this._count = 1;
-    }
-
-    /**
-     * @name UI.Events#_fireCallback
-     *
-     * @param {angular.IScope} $scope
-     * @param {Event} event
-     * @param {function(Event)} func
-     * @private
-     */
-    _service.prototype._fireCallback = function ($scope, event, func) {
-        this.apply($scope, function () {
-            func(event);
-        });
-    };
-
-    /**
-     * Executes the callback during a digest.
-     *
-     * @name UI.Events#apply
-     *
-     * @param {angular.IScope} $scope
-     * @param {function()} func
-     */
-    _service.prototype.apply = function ($scope, func) {
-        // $scope.$$phase ? $scope.$apply(func) : func();
-        if ($scope.$$phase) {
-            func();
-        }
-        else {
-            $scope.$apply(function () {
-                func();
-            });
-        }
-    };
-
-    /**
-     * Binds an event handler to an element, and unbinds if when the scope is destroyed.
-     *
-     * @name UI.Events#bind
-     *
-     * @param {angular.IScope} $scope
-     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} el
-     * @param {string} event The type of event (click, resize, etc)
-     * @param {function(Event)} func The event callback.
-     *
-     * @returns {string} The event ID
-     */
-    _service.prototype.bind = function ($scope, el, event, func) {
-        var id = event + '.' + $scope.$id + this._count++;
-        var $el = angular.element(el);
-        $el.bind(id, function (e) {
-            this._fireCallback($scope, e, func);
-        }.bind(this));
-        if ($el.scope() !== $scope) {
-            $scope.$on('$destroy', function () {
-                this.unbind($el, id);
-            }.bind(this));
-        }
-        return id;
-    };
-
-    /**
-     * Binds an event handler to an element, and unbinds if when the scope is destroyed.
-     *
-     * @name UI.Events#once
-     *
-     * @param {angular.IScope} $scope
-     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} $el
-     * @param {string} event The type of event (click, resize, etc)
-     * @param {function(Event)} func The event callback.
-     *
-     * @returns {string} The event ID
-     */
-    _service.prototype.once = function ($scope, el, event, func) {
-        var id = event + '.' + $scope.$id + this._count++;
-        var $el = angular.element(el);
-        $el.one(id, function (e) {
-            this._fireCallback($scope, e, func);
-        }.bind(this));
-        if ($el.scope() !== $scope) {
-            $scope.$on('$destroy', function () {
-                this.unbind($el, id);
-            }.bind(this));
-        }
-        return id;
-    };
-
-    /**
-     * Removes a binding
-     *
-     * @name UI.Events#unbind
-     *
-     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} el
-     * @param {string} id
-     */
-    _service.prototype.unbind = function (el, id) {
-        angular.element(el).unbind(id);
-    };
-
-    app.service('$uiEvents', [
-        _service
-    ]);
-
-})(angular.module('UI'));
-(function (app) {
-
-    /**
-     * @name UI.uiLayout
-     *
-     * @description
-     *
-     * A very minimalist approach for a service that handles broadcast resize events for dynamic DOM listeners.
-     *
-     * @param {$assert} $assert
-     * @param {angular.ILogService} $log
-     * @param {Com.Events} $events
-     * @param {angular.IWindowService} $window
-     * @param {angular.IDocumentService} $document
-     * @param {angular.IRootScopeService} $rootScope
-     * @param {angular.ITimeoutService} $timeout
-     *
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchWidth
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchHeight
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchOuterWidth
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchOuterHeight
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchInnerWidth
-     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchInnerWeight
-     *
-     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchSize
-     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchOuterSize
-     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchInnerSize
-     *
-     * @constructor
-     */
-    function LayoutService($assert, $log, $events, $window, $document, $rootScope, $timeout) {
-        $log.debug('LayoutService::controller');
-
-        /**
-         * @type {Array.<function()>}
-         */
-        var watchers = [];
-
-        /**
-         * Makes first letter uppercase.
-         *
-         * @param {string} str
-         */
-        function firstUpper(str) {
-            return str.replace(/^(.)(.*)$/, function (m, p1, p2, o, s) {
-                return p1.toUpperCase() + p2;
-            });
-        }
-
-        /**
-         * @param {angular.IScope} scope
-         * @param {function()} watcher
-         */
-        function addWatcher(scope, watcher) {
-            watchers.push(watcher);
-            scope.$on('$destroy', function () {
-                watchers.splice(watchers.indexOf(watcher), 1);
-            });
-            $timeout(function () {
-                watcher();
-            });
-        }
-
-        _.each(['width', 'height', 'outerWidth', 'outerHeight', 'innerWidth', 'innerHeight'], function (name) {
-            var method = "watch" + firstUpper(name);
-            this[method] = function (scope, el, func) {
-                $assert.isScope(scope);
-                $assert.isElement(el);
-                $assert.isFunction(func);
-                addWatcher(scope, function () {
-                    func(el[name]());
-                });
-            };
-        }, this);
-
-        _.each([['width', 'height'], ['outerWidth', 'outerHeight'], ['innerWidth'], ['innerHeight']], function (names) {
-            var method = "watch" + firstUpper(names[0].replace(/[A-Z].*/, ''));
-            method = method === 'watchWidth' ? 'watch' : method;
-            method = method + 'Size';
-            this[method] = function (scope, el, func) {
-                $assert.isScope(scope);
-                $assert.isElement(el);
-                $assert.isFunction(func);
-                addWatcher(scope, function () {
-                    func(el[names[0]], el[names[1]]);
-                });
-            };
-        });
-
-        /**
-         * @param {angular.IScope} scope
-         * @param {Element[]} el
-         * @param {function()} func
-         */
-        this.watch = function(scope,el,func) {
-            $assert.isScope(scope);
-            $assert.isElement(el);
-            $assert.isFunction(func);
-            addWatcher(scope, function () {
-                func();
-            });
-        };
-
-        this.$digesting = false;
-
-        /**
-         * Call this when ever the code causes the DOM elements to change size.
-         *
-         * @param {boolean=} immediately
-         */
-        this.redraw = function (immediately) {
-            if(this.$digesting) {
-                return;
-            }
-            this.$digesting = true;
-
-            function digest() {
-                _.each(watchers, function (watcher) {
-                    watcher();
-                });
-            }
-
-            if(immediately === true) {
-                try {
-                    digest();
-                } finally {
-                    this.$digesting = false;
-                }
-            } else {
-                $timeout(function(){
-                    try {
-                        digest();
-                    } finally {
-                        this.$digesting = false;
-                    }
-                }.bind(this));
-            }
-        };
-
-        $events.bind($rootScope, $window, 'resize', 'uiLayout', function () {
-            this.redraw(true);
-        }.bind(this));
-
-        this.$dragging = false;
-        $events.bind($rootScope, $document, 'mousedown', 'uiLayout', function(){
-            this.$dragging = true;
-        }.bind(this));
-
-        $events.bind($rootScope, $document, 'mousemove', 'uiLayout', function(){
-            this.$dragging && this.redraw(true);
-        }.bind(this));
-
-        $events.bind($rootScope, $document, 'mouseup', 'uiLayout', function(){
-            try {
-                this.redraw(true);
-            } finally {
-                this.$dragging = false;
-            }
-        }.bind(this));
-    }
-
-    app.service('uiLayout', [
-        '$assert',
-        '$log',
-        '$events',
-        '$window',
-        '$document',
-        '$rootScope',
-        '$timeout',
-        LayoutService
-    ]);
-
-})(angular.module('UI'));
-(function (app) {
-
-    /**
-     * @name UI.Modal
-     *
-     * @param {$assert} $assert
-     * @param {angular.ILogService} $log
-     * @param {angular.IQService} $q
-     * @param {angular.ITemplateRequestService} $templateRequest
-     * @param {angular.IInjectorService} $injector
-     * @param {angular.IRootScopeService} $rootScope
-     * @param {angular.ICompileService} $compile
-     * @param {UI.Timeout} $uiTimeout
-     * @param {angular.IControllerService} $controller
-     * @param {UI.ModalContextFactory} $modalContextFactory
-     *
-     * @constructor
-     */
-    function uiModal($assert, $log, $q, $templateRequest, $injector, $rootScope, $compile, $uiTimeout, $controller, $modalContextFactory) {
-
-        /**
-         * @name UI.Modal.Options
-         *
-         * @property {Object.<string,function>} resolve
-         * @property {string|function} controller
-         * @property {string} controllerAs
-         * @property {boolean} bindToController
-         * @property {string} template
-         * @property {string|function} templateUrl
-         * @property {angular.IScope} scope
-         */
-
-        /**
-         * @param {UI.Modal.Options} options
-         *
-         * @returns {UI.Modal.Options}
-         */
-        this.extendDefaults = function (options) {
-            var defaults = {
-                resolve: {},
-                controller: false,
-                controllerAs: false,
-                bindToController: false,
-                template: false,
-                templateUrl: false,
-                scope: false
-            };
-            return angular.extend({}, defaults, options || {});
-        };
-
-        /**
-         * @param {UI.Modal.Options} options
-         */
-        this.getTemplatePromise = function (options) {
-            if (!options.template && !options.templateUrl) {
-                throw new Error('One of template or templateUrl is required.');
-            }
-            return options.template ?
-                $q.when(options.template) :
-                $templateRequest(angular.isFunction(options.templateUrl) ? (options.templateUrl)() : options.templateUrl);
-        };
-
-        /**
-         * @param {Object.<string,function|Array>} resolves
-         *
-         * @returns {Array}
-         */
-        this.getResolvePromises = function (resolves) {
-            var promises = [];
-            angular.forEach(resolves, function (value) {
-                if (angular.isFunction(value) || angular.isArray(value)) {
-                    promises.push($q.when($injector.invoke(value)));
-                } else if (angular.isString(value)) {
-                    promises.push($q.when($injector.get(value)));
-                }
-            });
-            return promises;
-        };
-
-        /**
-         * @param {UI.Modal.Options} options
-         * @param {UI.ModalContext} $modalContext
-         *
-         * @returns {angular.IPromise}
-         */
-        this.resolveScope = function (options, $modalContext) {
-            options = this.extendDefaults(options);
-            return $q
-                .all([this.getTemplatePromise(options)].concat(this.getResolvePromises(options.resolve)))
-                .then(function (tplAndVars) {
-                    var scope = options.scope || $rootScope.$new();
-                    //controllers
-                    var ctrlInstance, ctrlLocals = {};
-                    var resolveIter = 1;
-                    if (options.controller) {
-                        ctrlLocals.$scope = scope;
-                        ctrlLocals['$modalContext'] = $modalContext;
-                        angular.forEach(options.resolve, function (value, key) {
-                            ctrlLocals[key] = tplAndVars[resolveIter++];
-                        });
-                        ctrlInstance = $controller(options.controller, ctrlLocals);
-                        if (options.controllerAs) {
-                            if (options.bindToController) {
-                                angular.extend(ctrlInstance, scope);
-                            }
-                            scope[options.controllerAs] = ctrlInstance;
-                        }
-                    }
-                    scope.$template = tplAndVars[0];
-                    return scope;
-                });
-        };
-
-        /**
-         * @param {UI.Modal.Options} options
-         * @param {UI.ModalContext} context
-         * @returns {UI.ModalContext}
-         */
-        this.create = function (options, context) {
-            $assert.isObject(options);
-            $assert.isInstanceOf(context, '$modalContextFactory');
-
-            options.scope = options.scope || context.getParent().scope();
-
-            this.resolveScope(options, context)
-                .then(function (scope) {
-                    var el = angular.element(scope.$template);
-                    delete scope.$template;
-                    context.setElement($compile(el)(scope, function (clone) {
-                        context.getParent().append(clone);
-                    }));
-                    context.getPromise().finally(function () {
-                        context.getElement().remove();
-                    });
-                });
-
-            return context;
-        };
-
-        /**
-         * @param {Element|jQuery|angular.IAugmentedJQuery|angular.IAugmentedJQueryStatic} parent
-         * @param {UI.Modal.Options} options
-         *
-         * @returns {angular.IPromise<Element>}
-         */
-        this.appendTo = function (parent, options) {
-            /**
-             * @type {UI.ModalContext}
-             */
-            var context = new $modalContextFactory(parent);
-            return this.create(options, context)
-                .getPromise()
-                .then(function () {
-                    return context.getElement();
-                });
-        };
-
-        /**
-         * @param {Element|jQuery|angular.IAugmentedJQuery|angular.IAugmentedJQueryStatic} parent
-         * @param {UI.Modal.Options} options
-         *
-         * @returns {angular.IPromise<T>}
-         * @template T
-         */
-        this.show = function (parent, options) {
-            /**
-             * @type {UI.ModalContext<T>}
-             */
-            var context = new $modalContextFactory(parent);
-            return this.create(options, context).getPromise();
-        };
-    }
-
-    app.service('$uiModal', [
-        '$assert',
-        '$log',
-        '$q',
-        '$templateRequest',
-        '$injector',
-        '$rootScope',
-        '$compile',
-        '$uiTimeout',
-        '$controller',
-        '$modalContextFactory',
-        uiModal
-    ]);
-
-})(angular.module('UI'));
-(function (app) {
-
-    /**
-     * @name UI.Size
-     */
-    function service() {
-
-        var DEFAULT_SIZE = 'md';
-
-        /**
-         * Adds the ui-size-## class if there is one, otherwise it inherits from the parent controllers.
-         *
-         * @param {angular.IScope} scope
-         * @param {Element|Array.<Element>|jQuery} el
-         * @param {Array.<UI.Size.Controller>=} parents
-         */
-        this.watchSize = function (scope, el, parents) {
-            var $el = angular.element(el);
-            scope.$watch('size', function (newValue, oldValue) {
-                $el.removeClass('ui-size-' + oldValue);
-                if (newValue) {
-                    $el.addClass('ui-size-' + newValue);
-                } else {
-                    var size = _.find(parents || [], function (parent) {
-                        return (parent && parent.getSize) ? parent.getSize() : false;
-                    });
-                    $el.addClass('ui-size-' + ((size && size.getSize()) || DEFAULT_SIZE));
-                }
-            });
-        };
-
-        /**
-         * @param {Array.<UI.Size.Controller>} parents
-         * @returns {string|boolean}
-         */
-        this.getParentSize = function (parents) {
-            var parent = _.find(parents || [], function (parent) {
-                return (parent && parent.getSize) ? parent.getSize() : false;
-            });
-            return parent
-                ? parent.getSize() || DEFAULT_SIZE
-                : DEFAULT_SIZE;
-        }
-    }
-
-    app.service('$uiSize', [
-        service
-    ]);
-
-    /**
-     * @name UI.Size.Controller
-     */
-    app.controller('$uiSizeController', ['$scope', function ($scope) {
-        this.getSize = function () {
-            return $scope.size;
-        }
-    }]);
-
-})(angular.module('UI'));
-(function (app) {
-
-    app.provider('$uiTimeout',
+    app.provider('d3', [
         function () {
             this.$get = [
-                '$timeout',
-                '$q',
-                function ($timeout, $q) {
-
-                    /**
-                     * @name UI.Timeout
-                     *
-                     * @description
-                     *
-                     * Works like the $timeout service except count is the number of digests to execute before
-                     * the func callback is executed.
-                     *
-                     * @param {function} func
-                     * @param {number|function} value Can be a number or a function. Digesting will continue until function returns false.
-                     * @param {number=} maxCount
-                     *
-                     * @returns {ng.IPromise}
-                     */
-                    function timeout(func, value, maxCount) {
-
-                        if (!angular.isFunction(func)) {
-                            throw new Error('Parameter func must be a function.');
-                        }
-                        if (!angular.isNumber(value) && !angular.isFunction(value)) {
-                            throw new Error('Parameter value must be a number or function.');
-                        }
-                        maxCount = angular.isUndefined(maxCount)
-                            ? 100
-                            : ~~maxCount;
-
-                        var count = 0;
-                        var defer = $q.defer();
-
-                        function wait() {
-                            defer.promise.$$uiTimeout = $timeout(function () {
-                                if(count >= maxCount) {
-                                    throw new Error('Max number of digests reached.');
-                                }
-                                var cont = angular.isFunction(value)
-                                    ? value()
-                                    : count++ < +value;
-                                if (cont) {
-                                    wait();
-                                    return;
-                                }
-                                defer.resolve(func(count));
-                            }, 0);
-
-                            return defer.promise;
-                        }
-
-                        return wait();
-                    }
-
-                    /**
-                     * @param {angular.IPromise} promise
-                     * @returns {boolean}
-                     */
-                    timeout.cancel = function (promise) {
-                        if (promise && promise.$$uiTimeout) {
-                            return $timeout.cancel(promise.$$uiTimeout);
-                        }
-                        return false;
-                    };
-
-                    return timeout;
+                '$window',
+                function ($window) {
+                    return $window.d3;
                 }]
-        });
+        }
+    ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
+/**
+ * @ngdoc service
+ * @name ui.svg.$svgPath
+ */
 (function (app) {
 
     app.factory('$svgPath', [
@@ -2333,6 +1732,10 @@
     ]);
 
 })(angular.module('UI'));
+/**
+ * @ngdoc service
+ * @name ui.svg.$svgTurtle
+ */
 (function (app) {
 
     var goRight = {
@@ -2462,7 +1865,698 @@
 
 })(angular.module('UI'));
 /**
- * @namespace UI.MenuItem
+ * @ngdoc service
+ * @name ui.services.uiDebugService
+ */
+(function (app) {
+
+    /**
+     * @name UI.uiDebugService
+     *
+     * @param {boolean} isEnabled
+     *
+     * @constructor
+     */
+    function DebugService(isEnabled) {
+        var _show = false;
+        /**
+         * @param {boolean|string} value
+         * @returns {UI.uiDebugService}
+         */
+        this.setDebug = function (value) {
+            _show = angular.isString(value) ? value === 'true' : !!value;
+            return this;
+        };
+        /**
+         * @returns {boolean}
+         */
+        this.getDebug = function () {
+            return isEnabled && _show;
+        };
+
+        /**
+         * @returns {boolean}
+         */
+        this.isEnabled = function () {
+            return isEnabled;
+        }
+    }
+
+    /**
+     * @name UI.uiDebugProvider
+     */
+    function DebugProvider() {
+
+        var _enabled = false;
+
+        /**
+         * @param {boolean} value
+         */
+        this.setEnabled = function(value) {
+            _enabled = !!value;
+        };
+
+        this.$get = function () {
+            return new DebugService(_enabled);
+        };
+    }
+
+    app.provider('uiDebugService', [
+        DebugProvider
+    ]);
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc service
+ * @name ui.services.uiEvents
+ */
+(function (app) {
+    /**
+     * @name UI.Events
+     *
+     * @constructor
+     */
+    function _service() {
+        this._count = 1;
+    }
+
+    /**
+     * @name UI.Events#_fireCallback
+     *
+     * @param {angular.IScope} $scope
+     * @param {Event} event
+     * @param {function(Event)} func
+     * @private
+     */
+    _service.prototype._fireCallback = function ($scope, event, func) {
+        this.apply($scope, function () {
+            func(event);
+        });
+    };
+
+    /**
+     * Executes the callback during a digest.
+     *
+     * @name UI.Events#apply
+     *
+     * @param {angular.IScope} $scope
+     * @param {function()} func
+     */
+    _service.prototype.apply = function ($scope, func) {
+        // $scope.$$phase ? $scope.$apply(func) : func();
+        if ($scope.$$phase) {
+            func();
+        }
+        else {
+            $scope.$apply(function () {
+                func();
+            });
+        }
+    };
+
+    /**
+     * Binds an event handler to an element, and unbinds if when the scope is destroyed.
+     *
+     * @name UI.Events#bind
+     *
+     * @param {angular.IScope} $scope
+     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} el
+     * @param {string} event The type of event (click, resize, etc)
+     * @param {function(Event)} func The event callback.
+     *
+     * @returns {string} The event ID
+     */
+    _service.prototype.bind = function ($scope, el, event, func) {
+        var id = event + '.' + $scope.$id + this._count++;
+        var $el = angular.element(el);
+        $el.bind(id, function (e) {
+            this._fireCallback($scope, e, func);
+        }.bind(this));
+        if ($el.scope() !== $scope) {
+            $scope.$on('$destroy', function () {
+                this.unbind($el, id);
+            }.bind(this));
+        }
+        return id;
+    };
+
+    /**
+     * Binds an event handler to an element, and unbinds if when the scope is destroyed.
+     *
+     * @name UI.Events#once
+     *
+     * @param {angular.IScope} $scope
+     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} $el
+     * @param {string} event The type of event (click, resize, etc)
+     * @param {function(Event)} func The event callback.
+     *
+     * @returns {string} The event ID
+     */
+    _service.prototype.once = function ($scope, el, event, func) {
+        var id = event + '.' + $scope.$id + this._count++;
+        var $el = angular.element(el);
+        $el.one(id, function (e) {
+            this._fireCallback($scope, e, func);
+        }.bind(this));
+        if ($el.scope() !== $scope) {
+            $scope.$on('$destroy', function () {
+                this.unbind($el, id);
+            }.bind(this));
+        }
+        return id;
+    };
+
+    /**
+     * Removes a binding
+     *
+     * @name UI.Events#unbind
+     *
+     * @param {Array.<Element>|Element|jQuery|ng.IDocumentService|ng.IAugmentedJQuery} el
+     * @param {string} id
+     */
+    _service.prototype.unbind = function (el, id) {
+        angular.element(el).unbind(id);
+    };
+
+    app.service('$uiEvents', [
+        _service
+    ]);
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc service
+ * @name ui.services.uiLayout
+ */
+(function (app) {
+
+    /**
+     * @name UI.uiLayout
+     *
+     * @description
+     *
+     * A very minimalist approach for a service that handles broadcast resize events for dynamic DOM listeners.
+     *
+     * @param {$assert} $assert
+     * @param {angular.ILogService} $log
+     * @param {Com.Events} $events
+     * @param {angular.IWindowService} $window
+     * @param {angular.IDocumentService} $document
+     * @param {angular.IRootScopeService} $rootScope
+     * @param {angular.ITimeoutService} $timeout
+     *
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchWidth
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchHeight
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchOuterWidth
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchOuterHeight
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchInnerWidth
+     * @property {function(angular.IScope:scope,Element[]:el,function(number))} watchInnerWeight
+     *
+     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchSize
+     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchOuterSize
+     * @property {function(angular.IScope:scope,Element[]:el,function(number,number))} watchInnerSize
+     *
+     * @constructor
+     */
+    function LayoutService($assert, $log, $events, $window, $document, $rootScope, $timeout) {
+        $log.debug('LayoutService::controller');
+
+        /**
+         * @type {Array.<function()>}
+         */
+        var watchers = [];
+
+        /**
+         * Makes first letter uppercase.
+         *
+         * @param {string} str
+         */
+        function firstUpper(str) {
+            return str.replace(/^(.)(.*)$/, function (m, p1, p2, o, s) {
+                return p1.toUpperCase() + p2;
+            });
+        }
+
+        /**
+         * @param {angular.IScope} scope
+         * @param {function()} watcher
+         */
+        function addWatcher(scope, watcher) {
+            watchers.push(watcher);
+            scope.$on('$destroy', function () {
+                watchers.splice(watchers.indexOf(watcher), 1);
+            });
+            $timeout(function () {
+                watcher();
+            });
+        }
+
+        _.each(['width', 'height', 'outerWidth', 'outerHeight', 'innerWidth', 'innerHeight'], function (name) {
+            var method = "watch" + firstUpper(name);
+            this[method] = function (scope, el, func) {
+                $assert.isScope(scope);
+                $assert.isElement(el);
+                $assert.isFunction(func);
+                addWatcher(scope, function () {
+                    func(el[name]());
+                });
+            };
+        }, this);
+
+        _.each([['width', 'height'], ['outerWidth', 'outerHeight'], ['innerWidth'], ['innerHeight']], function (names) {
+            var method = "watch" + firstUpper(names[0].replace(/[A-Z].*/, ''));
+            method = method === 'watchWidth' ? 'watch' : method;
+            method = method + 'Size';
+            this[method] = function (scope, el, func) {
+                $assert.isScope(scope);
+                $assert.isElement(el);
+                $assert.isFunction(func);
+                addWatcher(scope, function () {
+                    func(el[names[0]], el[names[1]]);
+                });
+            };
+        });
+
+        /**
+         * @param {angular.IScope} scope
+         * @param {Element[]} el
+         * @param {function()} func
+         */
+        this.watch = function(scope,el,func) {
+            $assert.isScope(scope);
+            $assert.isElement(el);
+            $assert.isFunction(func);
+            addWatcher(scope, function () {
+                func();
+            });
+        };
+
+        this.$digesting = false;
+
+        /**
+         * Call this when ever the code causes the DOM elements to change size.
+         *
+         * @param {boolean=} immediately
+         */
+        this.redraw = function (immediately) {
+            if(this.$digesting) {
+                return;
+            }
+            this.$digesting = true;
+
+            function digest() {
+                _.each(watchers, function (watcher) {
+                    watcher();
+                });
+            }
+
+            if(immediately === true) {
+                try {
+                    digest();
+                } finally {
+                    this.$digesting = false;
+                }
+            } else {
+                $timeout(function(){
+                    try {
+                        digest();
+                    } finally {
+                        this.$digesting = false;
+                    }
+                }.bind(this));
+            }
+        };
+
+        $events.bind($rootScope, $window, 'resize', 'uiLayout', function () {
+            this.redraw(true);
+        }.bind(this));
+
+        this.$dragging = false;
+        $events.bind($rootScope, $document, 'mousedown', 'uiLayout', function(){
+            this.$dragging = true;
+        }.bind(this));
+
+        $events.bind($rootScope, $document, 'mousemove', 'uiLayout', function(){
+            this.$dragging && this.redraw(true);
+        }.bind(this));
+
+        $events.bind($rootScope, $document, 'mouseup', 'uiLayout', function(){
+            try {
+                this.redraw(true);
+            } finally {
+                this.$dragging = false;
+            }
+        }.bind(this));
+    }
+
+    app.service('uiLayout', [
+        '$assert',
+        '$log',
+        '$events',
+        '$window',
+        '$document',
+        '$rootScope',
+        '$timeout',
+        LayoutService
+    ]);
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc service
+ * @name ui.services.uiModal
+ */
+(function (app) {
+
+    /**
+     * @name UI.Modal
+     *
+     * @param {$assert} $assert
+     * @param {angular.ILogService} $log
+     * @param {angular.IQService} $q
+     * @param {angular.ITemplateRequestService} $templateRequest
+     * @param {angular.IInjectorService} $injector
+     * @param {angular.IRootScopeService} $rootScope
+     * @param {angular.ICompileService} $compile
+     * @param {UI.Timeout} $uiTimeout
+     * @param {angular.IControllerService} $controller
+     * @param {UI.ModalContextFactory} $modalContextFactory
+     *
+     * @constructor
+     */
+    function uiModal($assert, $log, $q, $templateRequest, $injector, $rootScope, $compile, $uiTimeout, $controller, $modalContextFactory) {
+
+        /**
+         * @name UI.Modal.Options
+         *
+         * @property {Object.<string,function>} resolve
+         * @property {string|function} controller
+         * @property {string} controllerAs
+         * @property {boolean} bindToController
+         * @property {string} template
+         * @property {string|function} templateUrl
+         * @property {angular.IScope} scope
+         */
+
+        /**
+         * @param {UI.Modal.Options} options
+         *
+         * @returns {UI.Modal.Options}
+         */
+        this.extendDefaults = function (options) {
+            var defaults = {
+                resolve: {},
+                controller: false,
+                controllerAs: false,
+                bindToController: false,
+                template: false,
+                templateUrl: false,
+                scope: false
+            };
+            return angular.extend({}, defaults, options || {});
+        };
+
+        /**
+         * @param {UI.Modal.Options} options
+         */
+        this.getTemplatePromise = function (options) {
+            if (!options.template && !options.templateUrl) {
+                throw new Error('One of template or templateUrl is required.');
+            }
+            return options.template ?
+                $q.when(options.template) :
+                $templateRequest(angular.isFunction(options.templateUrl) ? (options.templateUrl)() : options.templateUrl);
+        };
+
+        /**
+         * @param {Object.<string,function|Array>} resolves
+         *
+         * @returns {Array}
+         */
+        this.getResolvePromises = function (resolves) {
+            var promises = [];
+            angular.forEach(resolves, function (value) {
+                if (angular.isFunction(value) || angular.isArray(value)) {
+                    promises.push($q.when($injector.invoke(value)));
+                } else if (angular.isString(value)) {
+                    promises.push($q.when($injector.get(value)));
+                }
+            });
+            return promises;
+        };
+
+        /**
+         * @param {UI.Modal.Options} options
+         * @param {UI.ModalContext} $modalContext
+         *
+         * @returns {angular.IPromise}
+         */
+        this.resolveScope = function (options, $modalContext) {
+            options = this.extendDefaults(options);
+            return $q
+                .all([this.getTemplatePromise(options)].concat(this.getResolvePromises(options.resolve)))
+                .then(function (tplAndVars) {
+                    var scope = options.scope || $rootScope.$new();
+                    //controllers
+                    var ctrlInstance, ctrlLocals = {};
+                    var resolveIter = 1;
+                    if (options.controller) {
+                        ctrlLocals.$scope = scope;
+                        ctrlLocals['$modalContext'] = $modalContext;
+                        angular.forEach(options.resolve, function (value, key) {
+                            ctrlLocals[key] = tplAndVars[resolveIter++];
+                        });
+                        ctrlInstance = $controller(options.controller, ctrlLocals);
+                        if (options.controllerAs) {
+                            if (options.bindToController) {
+                                angular.extend(ctrlInstance, scope);
+                            }
+                            scope[options.controllerAs] = ctrlInstance;
+                        }
+                    }
+                    scope.$template = tplAndVars[0];
+                    return scope;
+                });
+        };
+
+        /**
+         * @param {UI.Modal.Options} options
+         * @param {UI.ModalContext} context
+         * @returns {UI.ModalContext}
+         */
+        this.create = function (options, context) {
+            $assert.isObject(options);
+            $assert.isInstanceOf(context, '$modalContextFactory');
+
+            options.scope = options.scope || context.getParent().scope();
+
+            this.resolveScope(options, context)
+                .then(function (scope) {
+                    var el = angular.element(scope.$template);
+                    delete scope.$template;
+                    context.setElement($compile(el)(scope, function (clone) {
+                        context.getParent().append(clone);
+                    }));
+                    context.getPromise().finally(function () {
+                        context.getElement().remove();
+                    });
+                });
+
+            return context;
+        };
+
+        /**
+         * @param {Element|jQuery|angular.IAugmentedJQuery|angular.IAugmentedJQueryStatic} parent
+         * @param {UI.Modal.Options} options
+         *
+         * @returns {angular.IPromise<Element>}
+         */
+        this.appendTo = function (parent, options) {
+            /**
+             * @type {UI.ModalContext}
+             */
+            var context = new $modalContextFactory(parent);
+            return this.create(options, context)
+                .getPromise()
+                .then(function () {
+                    return context.getElement();
+                });
+        };
+
+        /**
+         * @param {Element|jQuery|angular.IAugmentedJQuery|angular.IAugmentedJQueryStatic} parent
+         * @param {UI.Modal.Options} options
+         *
+         * @returns {angular.IPromise<T>}
+         * @template T
+         */
+        this.show = function (parent, options) {
+            /**
+             * @type {UI.ModalContext<T>}
+             */
+            var context = new $modalContextFactory(parent);
+            return this.create(options, context).getPromise();
+        };
+    }
+
+    app.service('$uiModal', [
+        '$assert',
+        '$log',
+        '$q',
+        '$templateRequest',
+        '$injector',
+        '$rootScope',
+        '$compile',
+        '$uiTimeout',
+        '$controller',
+        '$modalContextFactory',
+        uiModal
+    ]);
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc service
+ * @name ui.services.uiSize
+ */
+(function (app) {
+
+    /**
+     * @name UI.Size
+     */
+    function service() {
+
+        var DEFAULT_SIZE = 'md';
+
+        /**
+         * Adds the ui-size-## class if there is one, otherwise it inherits from the parent controllers.
+         *
+         * @param {angular.IScope} scope
+         * @param {Element|Array.<Element>|jQuery} el
+         * @param {Array.<UI.Size.Controller>=} parents
+         */
+        this.watchSize = function (scope, el, parents) {
+            var $el = angular.element(el);
+            scope.$watch('size', function (newValue, oldValue) {
+                $el.removeClass('ui-size-' + oldValue);
+                if (newValue) {
+                    $el.addClass('ui-size-' + newValue);
+                } else {
+                    var size = _.find(parents || [], function (parent) {
+                        return (parent && parent.getSize) ? parent.getSize() : false;
+                    });
+                    $el.addClass('ui-size-' + ((size && size.getSize()) || DEFAULT_SIZE));
+                }
+            });
+        };
+
+        /**
+         * @param {Array.<UI.Size.Controller>} parents
+         * @returns {string|boolean}
+         */
+        this.getParentSize = function (parents) {
+            var parent = _.find(parents || [], function (parent) {
+                return (parent && parent.getSize) ? parent.getSize() : false;
+            });
+            return parent
+                ? parent.getSize() || DEFAULT_SIZE
+                : DEFAULT_SIZE;
+        }
+    }
+
+    app.service('$uiSize', [
+        service
+    ]);
+
+    /**
+     * @name UI.Size.Controller
+     */
+    app.controller('$uiSizeController', ['$scope', function ($scope) {
+        this.getSize = function () {
+            return $scope.size;
+        }
+    }]);
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc service
+ * @name ui.services.uiTimeout
+ */
+(function (app) {
+
+    app.provider('$uiTimeout',
+        function () {
+            this.$get = [
+                '$timeout',
+                '$q',
+                function ($timeout, $q) {
+
+                    /**
+                     * @name UI.Timeout
+                     *
+                     * @description
+                     *
+                     * Works like the $timeout service except count is the number of digests to execute before
+                     * the func callback is executed.
+                     *
+                     * @param {function} func
+                     * @param {number|function} value Can be a number or a function. Digesting will continue until function returns false.
+                     * @param {number=} maxCount
+                     *
+                     * @returns {ng.IPromise}
+                     */
+                    function timeout(func, value, maxCount) {
+
+                        if (!angular.isFunction(func)) {
+                            throw new Error('Parameter func must be a function.');
+                        }
+                        if (!angular.isNumber(value) && !angular.isFunction(value)) {
+                            throw new Error('Parameter value must be a number or function.');
+                        }
+                        maxCount = angular.isUndefined(maxCount)
+                            ? 100
+                            : ~~maxCount;
+
+                        var count = 0;
+                        var defer = $q.defer();
+
+                        function wait() {
+                            defer.promise.$$uiTimeout = $timeout(function () {
+                                if(count >= maxCount) {
+                                    throw new Error('Max number of digests reached.');
+                                }
+                                var cont = angular.isFunction(value)
+                                    ? value()
+                                    : count++ < +value;
+                                if (cont) {
+                                    wait();
+                                    return;
+                                }
+                                defer.resolve(func(count));
+                            }, 0);
+
+                            return defer.promise;
+                        }
+
+                        return wait();
+                    }
+
+                    /**
+                     * @param {angular.IPromise} promise
+                     * @returns {boolean}
+                     */
+                    timeout.cancel = function (promise) {
+                        if (promise && promise.$$uiTimeout) {
+                            return $timeout.cancel(promise.$$uiTimeout);
+                        }
+                        return false;
+                    };
+
+                    return timeout;
+                }]
+        });
+
+})(angular.module('thinkingmedia.ui.services'));
+/**
+ * @ngdoc directive
+ * @name ui.controls.uiMenuItem
  */
 (function(app){
 
@@ -2510,9 +2604,10 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
 /**
- * @namespace UI.MenuItems
+ * @ngdoc directive
+ * @name ui.controls.uiMenuItems
  */
 (function (app) {
 
@@ -2604,90 +2699,8 @@
 
 })(angular.module('UI'));
 /**
- * @namespace UI.Tab
- */
-(function (app) {
-
-    app.directive('uiTab', [
-        '$log',
-        '$uiWindows',
-        function ($log, /** UI.Windows */$uiWindows) {
-
-            /**
-             * @name UI.Tab.Scope
-             *
-             * @property {number} windowId
-             * @property {string} title
-             * @property {boolean} active
-             */
-
-            /**
-             * @name UI.Tab.Controller
-             * @param {UI.Tab.Scope} $scope
-             */
-            function controller($scope) {
-
-                /**
-                 * @returns {boolean}
-                 */
-                this.isActive = function() {
-                    return $scope.active;
-                };
-
-                /**
-                 * @param {string} title
-                 */
-                this.setTitle = function (title) {
-                    $scope.title = title;
-                };
-
-                /**
-                 * @returns {string}
-                 */
-                this.getTitle = function () {
-                    return $scope.title;
-                }
-            }
-
-            /**
-             * @param {UI.Tab.Scope} scope
-             * @param {Array.<Element>} el
-             * @param {$compile.directive.Attributes} attr
-             * @param {UI.Tabs.Controller} tabs
-             * @private
-             */
-            function _link(scope, el, attr, tabs) {
-                attr.$addClass('ui-tab');
-
-                scope.$watch('windowId', function (value) {
-                    var options = $uiWindows.get(~~value);
-                    scope.title = options.title;
-                    var parent = angular.element(el).empty();
-                    $uiWindows.create(parent, options.$id);
-                });
-            }
-
-            return {
-                restrict: 'E',
-                require: '^uiTabs',
-                scope: {
-                    'windowId': '@',
-                    'active': '@',
-                    'title': '='
-                },
-                link: _link,
-                controller: [
-                    '$scope',
-                    controller
-                ],
-                controllerAs: '$uiTab'
-            }
-        }
-    ]);
-
-})(angular.module('UI'));
-/**
- * @namespace UI.ToolbarInput
+ * @ngdoc directive
+ * @name ui.controls.uiToolbarInput
  */
 (function (app) {
 
