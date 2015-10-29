@@ -3,16 +3,19 @@ module.exports = function (grunt, tasks) {
 
     tasks.ngdocs = {
         options: {
-            dest: 'build/docs',
-            html5Mode: false
-            //startPage: '/ui',
-            //title: "API Documentation",
-            //titleLink: "/ui",
+            dest: 'docs',
+            html5Mode: false,
+            startPage: '/api',
+            title: "ThinkingMedia UI",
+            titleLink: "https://github.com/thinkingmedia/thinkingmedia-ui",
+            sourceLink: true,
+            editLink: true,
+            editExample: true
             //inlinePartials: true,
             //bestMatch: true
         },
         api: {
-            src: ['src/**/*.js', '!src/**/*.spec.js'],
+            src: ['src/**/*.js'],
             title: 'API Documentation'
         }
     };

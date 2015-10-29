@@ -2,6 +2,20 @@
   "author": "ThinkingMedia",
   "name": "thinkingmedia-ui",
   "version": "0.0.1",
+  "author": "Mathew Foscarini <support@thinkingmedia.ca>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinkingmedia/thinknigmedia-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thinkingmedia/thinkingmedia-ui/issues"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "ui"
+  ],
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "faithful-exec": "^0.1.0",
