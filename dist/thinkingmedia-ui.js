@@ -44,7 +44,6 @@
     'thinkingmedia.ui.factories',
     'thinkingmedia.ui.layouts',
     'thinkingmedia.ui.services',
-    'thinkingmedia.ui.styles',
     'thinkingmedia.ui.svg',
     'ngAssert'
 ]));
@@ -803,7 +802,7 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
 /**
  * @ngdoc directive
  * @name ui.controls.uiToolbar
@@ -943,7 +942,7 @@
         ModalContextFactory
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.factories'));
 /**
  * @ngdoc directive
  * @name ui.layouts.uiBorder
@@ -1231,7 +1230,7 @@
         uiColumnDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.layouts'));
 /**
  * @ngdoc directive
  * @name ui.layouts.uiLayout
@@ -1434,7 +1433,7 @@
         }
     ])
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
 /**
  * @ngdoc service
  * @name ui.svg.d3
@@ -1731,7 +1730,7 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
 /**
  * @ngdoc service
  * @name ui.svg.$svgTurtle
@@ -1863,7 +1862,7 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));
 /**
  * @ngdoc service
  * @name ui.services.uiDebugService
@@ -2697,7 +2696,7 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
 /**
  * @ngdoc directive
  * @name ui.controls.uiToolbarInput
@@ -2747,4 +2746,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));

@@ -97,4 +97,4 @@
         ModalContextFactory
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.factories'));

@@ -76,4 +76,4 @@
         uiColumnDirective
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.layouts'));

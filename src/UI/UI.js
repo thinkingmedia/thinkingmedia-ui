@@ -44,7 +44,6 @@
     'thinkingmedia.ui.factories',
     'thinkingmedia.ui.layouts',
     'thinkingmedia.ui.services',
-    'thinkingmedia.ui.styles',
     'thinkingmedia.ui.svg',
     'ngAssert'
 ]));

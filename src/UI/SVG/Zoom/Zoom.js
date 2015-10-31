@@ -26,4 +26,4 @@
         }
     ])
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.svg'));

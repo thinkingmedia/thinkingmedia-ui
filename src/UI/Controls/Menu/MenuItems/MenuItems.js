@@ -90,4 +90,4 @@
         }
     ]);
 
-})(angular.module('UI'));
+})(angular.module('thinkingmedia.ui.controls'));
