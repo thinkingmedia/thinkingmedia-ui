@@ -22,7 +22,7 @@
  */
 .ui-control-parent {
   @extend .ui-control-base;
-  background-color: $ui-wnd-bg;  // maybe can be removed? wnd should be under this.
+  //background-color: $ui-wnd-bg;  // maybe can be removed? wnd should be under this.
 }
 
 /**

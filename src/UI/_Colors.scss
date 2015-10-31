@@ -10,17 +10,12 @@ $primary-bg-color: #212121;
 $primary-text-color: #FFFFFF;
 $secondary-text-color: #F2F2F2;
 
-
 $ui-color-text-bg: #FFFFFF;
 $ui-color-text-base: rgb(0, 0, 0);
 $ui-color-text-primary: rgba($ui-color-text-base, 0.87);
 $ui-color-text-secondary: rgba($ui-color-text-base, 0.54);
 $ui-color-text-disabled: rgba($ui-color-text-base, 0.38);
 $ui-color-text-hint: rgba($ui-color-text-base, 0.38);
-
-// the action bar at the top
-$ui-color-action-bar-bg: $primary-color-dark;
-$ui-color-action-bar-text: $primary-color-text;
 
 // the large header that is colored by the theme primary
 $ui-color-banner-bg: $primary-color;
@@ -43,21 +38,12 @@ $ui-color-border: $divider-color;
 $ui-tooltip-bg: $primary-bg-color;
 $ui-tooltip-text: $primary-text-color;
 
-// windows
-$ui-wnd-frame-bg: $primary-color;
-$ui-wnd-frame-secondary-bg: $primary-color-dark;
-$ui-wnd-content-bg: $primary-bg-color;
-
 $ui-graph-bg: #474747;
-$ui-tabs-empty-bg: #474747;
 
 $ui-toolbar-bg: #484848;
-$ui-wnd-divider-bg: #656565;
 $ui-properties-bg: #545454;
 $ui-input-bg: #202020;
 
 // these are the new colors, the above is deprecated
-$ui-wnd-bg: #484848;
-$ui-wnd-border: #000000;
 $ui-control: #656565;
 $ui-control-border: #262626;
