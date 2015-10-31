@@ -4,6 +4,9 @@
  */
 (function (app) {
 
+    /**
+     * @name UI.Menu
+     */
     app.directive('uiMenu', [
         function () {
 

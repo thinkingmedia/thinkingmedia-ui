@@ -4,6 +4,9 @@
  */
 (function (app) {
 
+    /**
+     * @name UI.MenuItems
+     */
     app.directive('uiMenuItems', [
         '$uiEvents',
         '$document',

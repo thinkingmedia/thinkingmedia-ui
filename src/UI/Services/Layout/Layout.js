@@ -13,7 +13,7 @@
      *
      * @param {$assert} $assert
      * @param {angular.ILogService} $log
-     * @param {Com.Events} $events
+     * @param {UI.Events} $events
      * @param {angular.IWindowService} $window
      * @param {angular.IDocumentService} $document
      * @param {angular.IRootScopeService} $rootScope
@@ -141,20 +141,20 @@
             }
         };
 
-        $events.bind($rootScope, $window, 'resize', 'uiLayout', function () {
+        $events.bind($rootScope, $window, 'resize', function () {
             this.redraw(true);
         }.bind(this));
 
         this.$dragging = false;
-        $events.bind($rootScope, $document, 'mousedown', 'uiLayout', function(){
+        $events.bind($rootScope, $document, 'mousedown', function(){
             this.$dragging = true;
         }.bind(this));
 
-        $events.bind($rootScope, $document, 'mousemove', 'uiLayout', function(){
+        $events.bind($rootScope, $document, 'mousemove', function(){
             this.$dragging && this.redraw(true);
         }.bind(this));
 
-        $events.bind($rootScope, $document, 'mouseup', 'uiLayout', function(){
+        $events.bind($rootScope, $document, 'mouseup', function(){
             try {
                 this.redraw(true);
             } finally {
@@ -166,7 +166,7 @@
     app.service('uiLayout', [
         '$assert',
         '$log',
-        '$events',
+        '$uiEvents',
         '$window',
         '$document',
         '$rootScope',

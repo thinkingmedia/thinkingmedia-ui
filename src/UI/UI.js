@@ -38,6 +38,14 @@
  */
 (function(app){
 
+    /**
+     * @name UI
+     * @constructor
+     */
+    function App() {
+
+    }
+
 })(angular.module('thinkingmedia.ui',[
     'thinkingmedia.ui.components',
     'thinkingmedia.ui.controls',
