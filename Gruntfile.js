@@ -52,7 +52,7 @@ module.exports = function (grunt) {
     // Documentation Generator
     tasks = require(grunt.uriTask + 'ngdocs.js')(grunt, tasks);
 
-    
+
     // Compass Tasks
     tasks = require(grunt.uriTask + 'sass.js')(grunt, tasks);
 
