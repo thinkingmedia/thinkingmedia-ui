@@ -1,5 +1,7 @@
 # ui
-UI library for AngularJS
+[![Build Status](https://secure.travis-ci.org/thinkingmedia/thinkingmedia-ui.png?branch=master)](http://travis-ci.org/thinkingmedia/thinkingmedia-ui)
+
+> UI library for AngularJS
 
 ## Building
 

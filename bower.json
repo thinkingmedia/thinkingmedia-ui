@@ -10,6 +10,9 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "www/css/**",
+    "www/js/**",
+    "www/src/**/*.js",
     "test",
     "tests"
   ],
