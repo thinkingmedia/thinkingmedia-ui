@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 /.idea
 /.sass-cache
+/.extra
 /bower_components
 /node_modules
 /www/css/UI
