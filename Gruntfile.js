@@ -15,22 +15,13 @@ module.exports = function (grunt) {
         },
 
         package: {
-            cssMin: {
-                options: {
-                    clear: [
-                        './dist/css/UI/thinkingmedia-ui.css'
-                    ]
-                },
-                src: './dist/css/UI/thinkingmedia-ui.css',
-                dest: './dist/thinkingmedia-ui.min.css'
+            css: {
+                src: './www/css/thinkingmedia-ui.css',
+                dest: './dist/css/thinkingmedia-ui.css'
             },
-            cssFull: {
-                src: './www/css/UI/thinkingmedia-ui.css',
-                dest: './dist/thinkingmedia-ui.css'
-            },
-            cssMap: {
-                src: './www/css/UI/thinkingmedia-ui.map',
-                dest: './dist/thinkingmedia-ui.map'
+            map: {
+                src: './www/css/thinkingmedia-ui.map',
+                dest: './dist/css/thinkingmedia-ui.map'
             }
         }
     });
