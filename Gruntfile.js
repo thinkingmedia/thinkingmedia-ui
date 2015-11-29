@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         config: {
+            name: 'thinkingmedia-ui',
             build: './dist'
         },
 

@@ -2,6 +2,7 @@
 /.idea
 /.sass-cache
 /.extra
+/temp
 /bower_components
 /node_modules
 /www/css/UI
