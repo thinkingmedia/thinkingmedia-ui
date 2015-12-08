@@ -18,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular-assert": "~1.0.1"
+    "angular-assert": "~1.0.1",
+    "lodash": "~3.10.1",
+    "jquery": "~2.1.4"
   }
 }

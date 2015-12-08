@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="no-js ui-fill-parent" lang="en" ng-app="thinkingmedia.ui.demo">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ThinkingMedia UI</title>
+    <base href="/">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/><% }); %>
+</head>
+<body>
+
+<% scripts.forEach( function ( file ) { %><script type="text/javascript" src="<%= file %>"></script>
+<% }); %>
+
+<script>
+    (function(app){
+        app.value('APP_VERSION', '<%= version %>');
+    })(angular.module('thinkingmedia.ui.demo'));
+</script>
+
+</body>
+</html>
