@@ -5,6 +5,7 @@
   "authors": [
     "thinkingmedia <mathew@thinkingmedia.ca>"
   ],
+  "main": "dist/js/thinkingmedia-ui.min.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
