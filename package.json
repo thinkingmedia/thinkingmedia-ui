@@ -1,8 +1,7 @@
 {
   "author": "Mathew Foscarini <support@thinkingmedia.ca>",
   "name": "thinkingmedia-ui",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/thinkingmedia/thinkingmedia-ui.git"
@@ -11,7 +10,6 @@
     "url": "https://github.com/thinkingmedia/thinkingmedia-ui/issues"
   },
   "scripts": {
-    "postinstall": "bower install",
     "start": "ws"
   },
   "keywords": [
@@ -22,10 +20,24 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.6.6",
-    "grunt": "~0.4.1",
+    "bower": "^1.7.7",
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html2js": "^0.3.5",
+    "grunt-mocha-istanbul": "^3.0.1",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-open": "^0.2.3",
     "grunt-thinkingmedia": "^0.1.7",
-    "local-web-server": "^1.0.1"
+    "istanbul": "^0.4.2",
+    "local-web-server": "^1.0.1",
+    "lodash": "^4.3.0",
+    "mocha": "^2.4.5"
   },
   "local-web-server": {
     "port": 8934,
