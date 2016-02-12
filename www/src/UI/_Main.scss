@@ -1,8 +1,10 @@
-@import "Controls/Controls";
-@import "Layouts/Layouts";
-@import "Styles/Styles";
-@import "SVG/SVG";
+@import "Config";
 
 @import "Body";
 @import "Common";
 @import "Table";
+
+@import "Controls/Controls";
+@import "Layouts/Layouts";
+@import "Styles/Styles";
+@import "SVG/SVG";

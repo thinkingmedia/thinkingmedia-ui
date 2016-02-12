@@ -13,7 +13,7 @@
  * .ui-border-horz, vert sets each parallel side.
  **/
 
-@each $parent, $color in ('ui-control': $ui-control-border) {
+@each $parent, $color in ('ui-control': $ui-color-control-border) {
   #{$parent} {
     &.ui-border-color, .ui-border-color {
       border-color: $color;

@@ -19,6 +19,6 @@ $ui-margin: $ui-unit-sm !default;
 $ui-height-toolbar: $ui-unit-sm + $ui-unit * 2 !default;
 $ui-divider: $ui-unit-xsm !default;
 
-.ui-width-2-buttons {
-  width: ($ui-unit-md + $ui-unit) * 2;
-}
+$ui-font-family: "Roboto", Helvetica, Arial, sans-serif !default;
+$ui-font-size: 14px !default;
+$ui-line-height: 16px !default;

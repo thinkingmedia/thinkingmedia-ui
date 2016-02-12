@@ -12,8 +12,8 @@
   padding: 0 $ui-padding;
   @include border-radius($ui-unit);
 
-  background-color: $ui-tooltip-bg;
-  color: $ui-tooltip-text;
+  background-color: $ui-color-tooltip-bg;
+  color: $ui-color-tooltip-text;
   opacity: 0;
 
   @include transition(opacity 0.3s ease-in-out);

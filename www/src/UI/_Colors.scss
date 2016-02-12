@@ -1,14 +1,11 @@
 /* http://www.materialpalette.com/blue-grey/teal */
-$primary-color-dark: #455A64 !default;
-$primary-color: #607D8B !default;
-$primary-color-light: #CFD8DC !default;
-$primary-color-text: #FFFFFF !default;
-$accent-color: #009688 !default;
-$divider-color: #464646 !default;
-
-$primary-bg-color: #212121 !default;
-$primary-text-color: #FFFFFF !default;
-$secondary-text-color: #F2F2F2 !default;
+$ui-color-primary: #607D8B !default;
+$ui-color-primary-light: #CFD8DC !default;
+$ui-color-primary-text: #FFFFFF !default;
+$ui-color-primary-bg: #212121 !default;
+$ui-color-secondary-text: #F2F2F2 !default;
+$ui-color-secondary-bg: #313131 !default;
+$ui-color-accent: #009688 !default;
 
 $ui-color-text-bg: #FFFFFF !default;
 $ui-color-text-base: rgb(0, 0, 0) !default;
@@ -18,32 +15,32 @@ $ui-color-text-disabled: rgba($ui-color-text-base, 0.38) !default;
 $ui-color-text-hint: rgba($ui-color-text-base, 0.38) !default;
 
 // the large header that is colored by the theme primary
-$ui-color-banner-bg: $primary-color !default;
-$ui-color-banner-text: $primary-color-text !default;
-$ui-color-banner-secondary-text: $primary-color-light !default;
+$ui-color-banner-bg: $ui-color-primary !default;
+$ui-color-banner-text: $ui-color-primary-text !default;
+$ui-color-banner-secondary-text: $ui-color-primary-light !default;
 
 // black and white text
-$ui-color-body-bg: $primary-bg-color !default;
-$ui-color-body-text: $primary-text-color !default;
-$ui-color-body-secondary-text: $secondary-text-color !default;
+$ui-color-body-bg: $ui-color-primary-bg !default;
+$ui-color-body-text: $ui-color-primary-text !default;
+$ui-color-body-secondary-text: $ui-color-secondary-text !default;
 
 // buttons
-$ui-color-button-bg: $accent-color !default;
-$ui-color-button-text: $primary-color-text !default;
+$ui-color-button-bg: $ui-color-accent !default;
+$ui-color-button-text: $ui-color-primary-text !default;
 
 // borders and divers
-$ui-color-border: $divider-color !default;
+$ui-color-border: #464646 !default;
 
 // tooltips
-$ui-tooltip-bg: $primary-bg-color !default;
-$ui-tooltip-text: $primary-text-color !default;
+$ui-color-tooltip-bg: $ui-color-primary-bg !default;
+$ui-color-tooltip-text: $ui-color-primary-text !default;
 
-$ui-graph-bg: #474747 !default;
+$ui-color-graph-bg: #474747 !default;
 
-$ui-toolbar-bg: #484848 !default;
-$ui-properties-bg: #545454 !default;
-$ui-input-bg: #202020 !default;
+$ui-color-toolbar-bg: #484848 !default;
+$ui-color-properties-bg: #545454 !default;
+$ui-color-input-bg: #202020 !default;
 
 // these are the new colors, the above is deprecated
-$ui-control: #656565 !default;
-$ui-control-border: #262626 !default;
+$ui-color-control: #656565 !default;
+$ui-color-control-border: #262626 !default;

@@ -8,9 +8,9 @@ body {
   background-color: $ui-color-body-bg;
   color: $ui-color-body-text;
   overflow: hidden !important;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: $ui-font-family;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: $ui-font-size;
+  line-height: $ui-line-height;
 }

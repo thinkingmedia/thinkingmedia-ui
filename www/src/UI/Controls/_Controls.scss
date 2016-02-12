@@ -30,10 +30,10 @@
  */
 .ui-control {
   @extend .ui-control-base;
-  background-color: $ui-control;
+  background-color: $ui-color-control;
 
   &.ui-active {
-    background-color: lighten($ui-control, 5%);
+    background-color: lighten($ui-color-control, 5%);
   }
 }
 
@@ -47,7 +47,7 @@
   .ui-control {
     background-color: inherit;
     &.ui-active {
-      background-color: $ui-control;
+      background-color: $ui-color-control;
     }
   }
 }
