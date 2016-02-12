@@ -1,23 +1,23 @@
 // the smallest grid unit
-$ui-unit: 4px;
-$ui-unit-xsm: 8px;
-$ui-unit-sm: 16px;
-$ui-unit-md: 24px;
-$ui-unit-lg: 32px;
-$ui-unit-xlg: 40px;
+$ui-unit: 4px !default;
+$ui-unit-xsm: 8px !default;
+$ui-unit-sm: 16px !default;
+$ui-unit-md: 24px !default;
+$ui-unit-lg: 32px !default;
+$ui-unit-xlg: 40px !default;
 
 $ui-units: ("xsm", $ui-unit-xsm),
         ("sm", $ui-unit-sm),
         ("md", $ui-unit-md),
         ("lg", $ui-unit-lg),
-        ("xlg", $ui-unit-xlg);
+        ("xlg", $ui-unit-xlg) !default;
 
-$ui-padding: $ui-unit-xsm;
-$ui-margin: $ui-unit-sm;
+$ui-padding: $ui-unit-xsm !default;
+$ui-margin: $ui-unit-sm !default;
 
 // height of elements
-$ui-height-toolbar: $ui-unit-sm + $ui-unit * 2;
-$ui-divider: $ui-unit-xsm;
+$ui-height-toolbar: $ui-unit-sm + $ui-unit * 2 !default;
+$ui-divider: $ui-unit-xsm !default;
 
 .ui-width-2-buttons {
   width: ($ui-unit-md + $ui-unit) * 2;

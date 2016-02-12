@@ -1,0 +1,16 @@
+@import "Config";
+
+.ui-table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-table-row {
+  display: table-row;
+}
+
+.ui-table-cell {
+  display: table-cell;
+  vertical-align: top;
+}

@@ -1,49 +1,49 @@
 /* http://www.materialpalette.com/blue-grey/teal */
-$primary-color-dark: #455A64;
-$primary-color: #607D8B;
-$primary-color-light: #CFD8DC;
-$primary-color-text: #FFFFFF;
-$accent-color: #009688;
-$divider-color: #464646;
+$primary-color-dark: #455A64 !default;
+$primary-color: #607D8B !default;
+$primary-color-light: #CFD8DC !default;
+$primary-color-text: #FFFFFF !default;
+$accent-color: #009688 !default;
+$divider-color: #464646 !default;
 
-$primary-bg-color: #212121;
-$primary-text-color: #FFFFFF;
-$secondary-text-color: #F2F2F2;
+$primary-bg-color: #212121 !default;
+$primary-text-color: #FFFFFF !default;
+$secondary-text-color: #F2F2F2 !default;
 
-$ui-color-text-bg: #FFFFFF;
-$ui-color-text-base: rgb(0, 0, 0);
-$ui-color-text-primary: rgba($ui-color-text-base, 0.87);
-$ui-color-text-secondary: rgba($ui-color-text-base, 0.54);
-$ui-color-text-disabled: rgba($ui-color-text-base, 0.38);
-$ui-color-text-hint: rgba($ui-color-text-base, 0.38);
+$ui-color-text-bg: #FFFFFF !default;
+$ui-color-text-base: rgb(0, 0, 0) !default;
+$ui-color-text-primary: rgba($ui-color-text-base, 0.87) !default;
+$ui-color-text-secondary: rgba($ui-color-text-base, 0.54) !default;
+$ui-color-text-disabled: rgba($ui-color-text-base, 0.38) !default;
+$ui-color-text-hint: rgba($ui-color-text-base, 0.38) !default;
 
 // the large header that is colored by the theme primary
-$ui-color-banner-bg: $primary-color;
-$ui-color-banner-text: $primary-color-text;
-$ui-color-banner-secondary-text: $primary-color-light;
+$ui-color-banner-bg: $primary-color !default;
+$ui-color-banner-text: $primary-color-text !default;
+$ui-color-banner-secondary-text: $primary-color-light !default;
 
 // black and white text
-$ui-color-body-bg: $primary-bg-color;
-$ui-color-body-text: $primary-text-color;
-$ui-color-body-secondary-text: $secondary-text-color;
+$ui-color-body-bg: $primary-bg-color !default;
+$ui-color-body-text: $primary-text-color !default;
+$ui-color-body-secondary-text: $secondary-text-color !default;
 
 // buttons
-$ui-color-button-bg: $accent-color;
-$ui-color-button-text: $primary-color-text;
+$ui-color-button-bg: $accent-color !default;
+$ui-color-button-text: $primary-color-text !default;
 
 // borders and divers
-$ui-color-border: $divider-color;
+$ui-color-border: $divider-color !default;
 
 // tooltips
-$ui-tooltip-bg: $primary-bg-color;
-$ui-tooltip-text: $primary-text-color;
+$ui-tooltip-bg: $primary-bg-color !default;
+$ui-tooltip-text: $primary-text-color !default;
 
-$ui-graph-bg: #474747;
+$ui-graph-bg: #474747 !default;
 
-$ui-toolbar-bg: #484848;
-$ui-properties-bg: #545454;
-$ui-input-bg: #202020;
+$ui-toolbar-bg: #484848 !default;
+$ui-properties-bg: #545454 !default;
+$ui-input-bg: #202020 !default;
 
 // these are the new colors, the above is deprecated
-$ui-control: #656565;
-$ui-control-border: #262626;
+$ui-control: #656565 !default;
+$ui-control-border: #262626 !default;

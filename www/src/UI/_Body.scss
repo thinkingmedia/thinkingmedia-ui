@@ -1,0 +1,16 @@
+@import "Config";
+
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  background-color: $ui-color-body-bg;
+  color: $ui-color-body-text;
+  overflow: hidden !important;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
