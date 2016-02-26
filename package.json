@@ -32,6 +32,7 @@
     "grunt-html2js": "^0.3.5",
     "grunt-mocha-istanbul": "^3.0.1",
     "grunt-mocha-test": "^0.12.7",
+    "grunt-ngdocs": "^0.2.9",
     "grunt-open": "^0.2.3",
     "grunt-thinkingmedia": "^0.1.7",
     "istanbul": "^0.4.2",
@@ -40,7 +41,7 @@
     "mocha": "^2.4.5"
   },
   "local-web-server": {
-    "port": 8934,
+    "port": 9000,
     "directory": "./www"
   }
 }

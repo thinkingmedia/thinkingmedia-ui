@@ -25,7 +25,7 @@
      * @param {string=} uiRepeat A prefix for the CSS class names (default is "ui-repeat").
      *
      * @example
-     <example name="uiRepeat-directive">
+     <example module="ui">
      <file name="index.html">
      <div ng-repeat="item in items" ui-repeat="item">
      </div>

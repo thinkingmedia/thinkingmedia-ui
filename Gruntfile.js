@@ -3,8 +3,8 @@
  */
 module.exports = function (grunt) {
 
-    if(grunt.file.exists('.extra/grunt-thinkingmedia')) {
-        grunt.loadTasks('.extra/grunt-thinkingmedia/tasks');
+    if(grunt.file.exists('../grunt-thinkingmedia')) {
+        grunt.loadTasks('../grunt-thinkingmedia/tasks');
     } else {
         grunt.loadNpmTasks('grunt-thinkingmedia');
     }
