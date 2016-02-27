@@ -15,6 +15,12 @@
  * @param {string} size The size for the button (can be inherited)
  *
  * @restrict E
+ * @example
+ <example module="ui">
+ <file name="index.html">
+ <ui-button>Submit</ui-button>
+ </file>
+ </example>
  */
 (function (app) {
 

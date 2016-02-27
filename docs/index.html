@@ -11,14 +11,14 @@
                  Declarative templates with data-binding, MVC, dependency injection and great
                  testability story all implemented with pure client-side JavaScript!">
   <meta name="fragment" content="!">
-  <title ng-bind-template="ThinkingMedia UI: {{partialTitle}}">Docs</title>
+  <title ng-bind-template="ThinkingMedia-UI: {{partialTitle}}">Docs</title>
   <script type="text/javascript">
     // dynamically add base tag as well as css and javascript files.
     // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
     // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
     (function() {
       var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
-          origin, baseUrl, rUrl = /(\/?#!\/.*|\/(docs)\/?(\?.*)*|\/index[^\.]*\.html.*)$/,
+          origin, baseUrl, rUrl = /(\/?#!\/.*|\/(components)\/?(\?.*)*|\/index[^\.]*\.html.*)$/,
           headEl = document.getElementsByTagName('head')[0],
           sync = true;
 
@@ -38,12 +38,26 @@
       addTag('link', {rel: 'stylesheet', href: 'css/animations.css', type: 'text/css'});
 
       
+         addTag('link', {rel: 'stylesheet', href: 'css/thinkingmedia-ui.css', type: 'text/css'}, sync);
+      
 
       addTag('script', {src: 'js/google-code-prettify.js'}, sync);
       addTag('script', {src: 'js/marked.js'}, sync);
 
       
-        addTag('script', {src: 'js/angular.min.js'}, sync);
+        addTag('script', {src: 'grunt-scripts/jquery.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/lodash.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/angular.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/angular-animate.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/angular-assert.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/thinkingmedia-ui.min.js'}, sync);
+      
+        addTag('script', {src: 'grunt-scripts/Docs.js'}, sync);
       
       
       addTag('script', {src: 'js/angular-bootstrap.js'}, sync);
@@ -85,7 +99,7 @@
         <div class="container">
           
           
-            <a  class="brand">ThinkingMedia UI</a>
+            <a  href="https://github.com/thinkingmedia/thinkingmedia-ui"  class="brand">ThinkingMedia-UI</a>
           
           <ul class="nav">
             <li ng-repeat="(url, name) in sections" ng-class="{active: isActivePath(url)}">
@@ -126,8 +140,16 @@
       <div class="span3">
         <form class="form-search" ng-submit="submitForm()">
           
-          <input type="text" ng-model="search" placeholder="search the docs"
-                 tabindex="1" accesskey="s" class="search-query">
+          <div class="dropdown search"
+               ng-class="{open: focused && bestMatch.rank > 0 && bestMatch.page != currentPage}">
+            <input type="text" ng-model="search" placeholder="search the docs"
+                   tabindex="1" accesskey="s" class="search-query" focused="focused">
+            <ul class="dropdown-menu">
+              <li>
+                <a href="{{bestMatch.page.url}}">{{bestMatch.page.shortName}}</a>
+              </li>
+            </ul>
+          </div>
           
           <div class="spacer"></div>
 

@@ -42,6 +42,6 @@
   },
   "local-web-server": {
     "port": 9000,
-    "directory": "./www"
+    "directory": "./docs"
   }
 }
