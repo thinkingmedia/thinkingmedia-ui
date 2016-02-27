@@ -89,5 +89,12 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.task.registerTask('push-pages', function(){
+        var shell = require('shelljs');
+        shell.exec('git subtree split --prefix docs -b gh-pages');
+        shell.exec('git push -f origin gh-pages:gh-pages');
+        shell.exec('git branch -D gh-pages')
+    });
+
     grunt.task.registerTask('docs', ['build', 'ngdocs']);
 };

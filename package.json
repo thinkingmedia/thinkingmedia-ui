@@ -1,7 +1,7 @@
 {
   "author": "Mathew Foscarini <support@thinkingmedia.ca>",
   "name": "thinkingmedia-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/thinkingmedia/thinkingmedia-ui.git"
@@ -38,7 +38,8 @@
     "istanbul": "^0.4.2",
     "local-web-server": "^1.0.1",
     "lodash": "^4.3.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "shelljs": "^0.6.0"
   },
   "local-web-server": {
     "port": 9000,
