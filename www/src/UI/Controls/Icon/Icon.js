@@ -7,7 +7,6 @@
  * match it's parent size.
  *
  * @param {string} name The name of the font icon.
- * @param {string} size The size for the button (can be inherited)
  *
  * @restrict E
  * @example
@@ -27,12 +26,10 @@
              * @param {angular.IScope} scope
              * @param {jQuery} el
              * @param {$compile.directive.Attributes} attr
-             * @param {Array.<Object>} parents
-             * @private
+             * @param {ui.components.uiHeight.Controller} $uiHeight
              */
-            function _link(scope, el, attr, parents) {
+            function _link(scope, el, attr, $uiHeight) {
                 el.addClass('ui-icon');
-                $uiSize.watchSize(scope, el, parents);
                 scope.$watch('name', function (value) {
                     // using font-awesome
                     if (_.startsWith(value, 'fa-')) {
@@ -44,20 +41,19 @@
                     el.addClass('material-icons');
                     el.text(value);
                 });
-                scope.$watch('size', function (value) {
-                    var parent_size = $uiSize.getParentSize(parents);
-                    if (parent_size === 'md' && value === 'sm') {
-                        el.addClass('ui-fit-md');
-                    }
-                });
+
+                $uiHeight.setHeight(el);
+
+                if($uiHeight.getHeight() === 'sd' && $uiHeight.getParentHeight() === 'md') {
+                    el.addClass('ui-fit-md');
+                }
             }
 
             return {
                 restrict: 'E',
-                require: ['?^uiButton', '?^uiToolbar'],
+                require: '?^uiHeight',
                 scope: {
-                    name: '@',
-                    size: '@'
+                    name: '@'
                 },
                 link: _link,
                 controller: '$uiSizeController'

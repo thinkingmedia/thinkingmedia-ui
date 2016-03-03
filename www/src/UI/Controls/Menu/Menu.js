@@ -20,7 +20,8 @@
      * @name UI.Menu
      */
     app.directive('uiMenu', [
-        function () {
+        '$log',
+        function (/**angular.ILogService*/$log) {
 
             /**
              * @name ui.controls.uiMenu.Controller
@@ -28,14 +29,14 @@
             function controller() {
                 var $target = null;
                 /**
-                 * @param {jQuery} el
+                 * @param {JQuery} el
                  */
                 this.setTarget = function (el) {
                     $target = el.length === 0
                         ? null : el;
                 };
                 /**
-                 * @returns {jQuery|null}
+                 * @returns {JQuery|null}
                  */
                 this.getTarget = function () {
                     return $target;
@@ -44,22 +45,29 @@
 
             /**
              * @param {angular.IScope} scope
-             * @param {jQuery} el
+             * @param {Array.<Element>} el
              * @param {$compile.directive.Attributes} attr
-             * @param {UI.Menu.Controller} $uiMenu
+             * @param {ui.controls.uiMenu.Controller} $uiMenu
              * @param {function} transcludeFn
              * @private
              */
             function _link(scope, el, attr, $uiMenu, transcludeFn) {
-                el.addClass('ui-menu');
+                var $el = angular.element(el);
+
+                $el.addClass('ui-menu');
+
+                if(attr['uiHeight']) {
+                    $log.error('ui-height is not supported on ui-menu');
+                }
 
                 transcludeFn(function (clone) {
-                    var $target = clone.find('[ui-menu-target]').first();
+                    var $clone = angular.element(clone);
+                    var $target = $clone.find('[ui-menu-target]').first();
                     if ($target.length === 0) {
-                        $target = clone.children().not('ui-menu-items').first();
+                        $target = $clone.children().not('ui-menu-items').first();
                     }
                     $uiMenu.setTarget($target);
-                    el.replaceWith(clone);
+                    $el.replaceWith($clone);
                 });
             }
 

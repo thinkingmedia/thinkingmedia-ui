@@ -10,7 +10,7 @@
   @include user-select(none);
 
   @each $unit in $ui-units {
-    &.ui-size-#{nth($unit,1)} {
+    &.ui-height-#{nth($unit,1)} {
       font-size: nth($unit, 2);
       height: nth($unit, 2);
       line-height: nth($unit, 2);

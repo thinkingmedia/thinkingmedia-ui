@@ -10,10 +10,6 @@
  * Buttons, Toolbars and other UI controls can be shown using different sizes. When a uiButton is a child of uiToolbar
  * it can inherit the size setting from uiToolbar.
  *
- * @requires ui.services.uiSize
- *
- * @param {string} size The size for the button (can be inherited)
- *
  * @restrict E
  * @example
  <example module="ui">
@@ -44,6 +40,8 @@
                     var hasIcon = cloned.filter("ui-icon").length !== 0;
                     if (hasIcon) {
                         el.addClass('has-icon');
+
+                        // @todo - Find a better way to check if there is inner text.
                         var txt = cloned
                             .filter('span.ng-scope')
                             .addClass('ui-button-txt');
@@ -52,23 +50,22 @@
                         }
                     }
 
-                    if (!!parents[1]) {
-                        el.addClass('as-menu-item');
+                    if(parents[0]) {
+                        parents[0].setHeight(el);
                     }
 
-                    $uiSize.watchSize(scope, el, parents);
+                    if (parents[1]) {
+                        el.addClass('as-menu-item');
+                    }
                 });
             }
 
             return {
                 restrict: 'E',
-                require: ['?^uiToolbar', '?^uiMenuItem'],
+                require: ['?^uiHeight', '?^uiMenuItem'],
                 transclude: true,
-                scope: {
-                    size: '@'
-                },
-                link: _link,
-                controller: '$uiSizeController'
+                scope: {},
+                link: _link
             }
         }]);
 

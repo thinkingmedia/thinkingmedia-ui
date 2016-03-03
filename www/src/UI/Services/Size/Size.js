@@ -1,6 +1,8 @@
 /**
  * @ngdoc service
  * @name ui.services.uiSize
+ *
+ * @deprecated Use uiHeight instead.
  */
 (function (app) {
 

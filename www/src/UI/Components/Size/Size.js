@@ -36,17 +36,18 @@
              * @private
              */
             function _link(scope, el, attr) {
+                var $el = angular.element(el);
                 uiLayout.watch(scope, el, function () {
-                    if (el.hasClass('ng-hide')) {
+                    if ($el.hasClass('ng-hide')) {
                         return;
                     }
                     var values = {
-                        '$width': el.width(),
-                        '$innerWidth': el.innerWidth(),
-                        '$outerWidth': el.outerWidth(true),
-                        '$height': el.height(),
-                        '$innerHeight': el.innerHeight(),
-                        '$outerHeight': el.outerHeight(true)
+                        '$width': $el.width(),
+                        '$innerWidth': $el.innerWidth(),
+                        '$outerWidth': $el.outerWidth(true),
+                        '$height': $el.height(),
+                        '$innerHeight': $el.innerHeight(),
+                        '$outerHeight': $el.outerHeight(true)
                     };
                     scope.$eval(attr.uiSize, values);
                 });

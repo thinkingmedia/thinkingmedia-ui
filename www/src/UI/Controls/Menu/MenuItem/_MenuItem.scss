@@ -3,8 +3,14 @@
 .ui-menu-item {
   display: block;
   position: relative;
-  height: $ui-unit-md;
+  //height: $ui-unit-md;
   overflow: hidden;
+
+  @each $unit in $ui-units {
+    &.ui-height-#{nth($unit,1)} {
+      height: nth($unit, 2);
+    }
+  }
 
   &:hover {
     background-color: $ui-color-primary-light;

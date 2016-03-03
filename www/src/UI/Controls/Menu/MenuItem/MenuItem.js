@@ -11,18 +11,23 @@
              * @param {angular.IScope} scope
              * @param {jQuery} el
              * @param {$compile.directive.Attributes} attr
-             * @param {function} ctrl
+             * @param {ui.components.uiHeight.Controller} $uiHeight
              * @param {function} transcludeFn
              */
-            function _link(scope, el, attr, ctrl, transcludeFn) {
+            function _link(scope, el, attr, $uiHeight, transcludeFn) {
                 el.addClass('ui-menu-item');
                 transcludeFn(function(clone){
                     el.append(clone);
                 });
+
+                if($uiHeight) {
+                    $uiHeight.setHeight(el);
+                }
             }
 
             return {
                 restrict: 'E',
+                require: '?^uiHeight',
                 transclude: true,
                 scope: {},
                 link: _link
