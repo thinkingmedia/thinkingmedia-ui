@@ -90,7 +90,7 @@
         /**
          * Binds an event handler to an element, and unbinds if when the scope is destroyed.
          *
-         * @param {ng.IScope} $scope
+         * @param {angular.IScope} $scope
          * @param {Element|Element[]|angular.IDocumentService|angular.IWindowService} el
          * @param {string} event The type of event (click, resize, etc)
          * @param {function(Event)} func The event callback.

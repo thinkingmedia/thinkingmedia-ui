@@ -30,29 +30,30 @@
 
             /**
              * @param {angular.IScope} scope
-             * @param {Array.<Element>} el
+             * @param {jQuery} el
              * @param {$compile.directive.Attributes} attr
              * @param {Array.<Object>} parents
              * @param {function} transcludeFn
              * @private
              */
             function _link(scope, el, attr, parents, transcludeFn) {
-                attr.$addClass('ui-button');
+                el.addClass('ui-button');
 
-                var $el = angular.element(el);
                 transcludeFn(function (cloned) {
-                    $el.append(cloned);
+                    el.append(cloned);
                     var hasIcon = cloned.filter("ui-icon").length !== 0;
                     if (hasIcon) {
-                        attr.$addClass('has-icon');
-                        if (cloned.filter('.ui-button-txt').length === 0) {
-                            attr.$addClass('icon-only');
+                        el.addClass('has-icon');
+                        var txt = cloned
+                            .filter('span.ng-scope')
+                            .addClass('ui-button-txt');
+                        if (txt.length === 0) {
+                            el.addClass('icon-only');
                         }
                     }
 
-                    if(!!parents[1])
-                    {
-                        attr.$addClass('as-menu-item');
+                    if (!!parents[1]) {
+                        el.addClass('as-menu-item');
                     }
 
                     $uiSize.watchSize(scope, el, parents);
@@ -61,7 +62,7 @@
 
             return {
                 restrict: 'E',
-                require: ['?^uiToolbar','?^uiMenuItem'],
+                require: ['?^uiToolbar', '?^uiMenuItem'],
                 transclude: true,
                 scope: {
                     size: '@'

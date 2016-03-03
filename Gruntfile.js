@@ -3,15 +3,28 @@
  */
 module.exports = function (grunt) {
 
+    grunt.loadNpmTasks('grunt-ngdocs');
+
     if (grunt.file.exists('../grunt-thinkingmedia')) {
         grunt.loadTasks('../grunt-thinkingmedia/tasks');
     } else {
         grunt.loadNpmTasks('grunt-thinkingmedia');
     }
 
-    grunt.loadNpmTasks('grunt-ngdocs');
+    if (grunt.file.exists('../grunt-readme-plus')) {
+        grunt.loadTasks('../grunt-readme-plus/tasks');
+    } else {
+        grunt.loadNpmTasks('grunt-readme-plus');
+    }
 
     grunt.initConfig({
+        readme: {
+            options: {},
+            src: [
+                'www/src/UI/**/*.js'
+            ],
+            dest: 'README.md'
+        },
         config: {
             name: 'thinkingmedia-ui',
             src: [
@@ -19,7 +32,6 @@ module.exports = function (grunt) {
             ],
             build: './dist'
         },
-
         index: {
             dev: {
                 options: {
@@ -43,7 +55,6 @@ module.exports = function (grunt) {
                 dest: './www/index.html'
             }
         },
-
         package: {
             css: {
                 src: './www/css/thinkingmedia-ui.css',
@@ -54,7 +65,6 @@ module.exports = function (grunt) {
                 dest: './dist/css/thinkingmedia-ui.map'
             }
         },
-
         ngdocs: {
             options: {
                 dest: './docs',
@@ -89,7 +99,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.task.registerTask('push-pages', function(){
+    grunt.task.registerTask('push-pages', function () {
         var shell = require('shelljs');
         shell.exec('git subtree split --prefix docs -b gh-pages');
         shell.exec('git push -f origin gh-pages:gh-pages');

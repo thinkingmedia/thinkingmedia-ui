@@ -34,6 +34,7 @@
     "grunt-mocha-test": "^0.12.7",
     "grunt-ngdocs": "^0.2.9",
     "grunt-open": "^0.2.3",
+    "grunt-readme-plus": "^1.0.4",
     "grunt-thinkingmedia": "^0.1.7",
     "istanbul": "^0.4.2",
     "local-web-server": "^1.0.1",

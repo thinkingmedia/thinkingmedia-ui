@@ -10,28 +10,20 @@
     app.directive('uiMenuItems', [
         '$uiEvents',
         '$document',
-        function (/** UI.Events */$events, /** ng.IDocumentService */$document) {
+        function (/** UI.Events */$events, /** angular.IDocumentService */$document) {
 
             /**
-             * @name UI.MenuItems.Scope
+             * @name ui.controls.uiMenuItems.Scope
              * @extends angular.IScope
              *
              * @property {string} show
              */
 
             /**
-             * @name UI.MenuItems.Controller
-             *
-             * @param {UI.MenuItems.Scope} $scope
-             */
-            function controller($scope) {
-            }
-
-            /**
-             * @param {UI.MenuItems.Scope} scope
-             * @param {Array.<Element>} el
+             * @param {ui.controls.uiMenuItems.Scope} scope
+             * @param {jQuery} el
              * @param {$compile.directive.Attributes} attr
-             * @param {UI.Menu.Controller} $uiMenu
+             * @param {ui.controls.uiMenu.Controller} $uiMenu
              * @param {function} transcludeFn
              *
              * @private
@@ -51,15 +43,19 @@
                     el.append(clone);
 
                     var $target = $uiMenu.getTarget();
+
+                    // there is no clickable target. Keep menu embedded and visible.
                     if($target === null) {
                         el.addClass('embedded');
+                        scope.show = 'true';
                         return;
                     }
+                    el.addClass('popup');
 
                     $events.bind(scope, $target, 'click', function (/** Event */event) {
                         event.stopPropagation();
                         el.removeClass('ng-hide');
-                        $events.once(scope, $document, 'click', function (event) {
+                        $events.once(scope, $document, 'click', function () {
                             el.addClass('ng-hide');
                         });
 
@@ -68,7 +64,7 @@
                         pos.top -= 8;
                         pos.left -= 16;
 
-                        $el.css({
+                        el.css({
                             top: pos.top + 'px',
                             left: pos.left + 'px'
                         });
@@ -83,12 +79,7 @@
                 scope: {
                     show: '@'
                 },
-                link: _link,
-                controller: [
-                    '$scope',
-                    controller
-                ],
-                controllerAs: '$uiMenuItems'
+                link: _link
             }
         }
     ]);

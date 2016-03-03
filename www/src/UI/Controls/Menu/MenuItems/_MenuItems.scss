@@ -2,13 +2,17 @@
 
 .ui-menu-items {
   display: block;
-  position: absolute;
-  background-color: $ui-color-text-bg;
-  color: $ui-color-text-primary;
-  padding: $ui-unit-xsm 0;
-  z-index: 100;
 
-  @include border-radius($ui-unit);
+  &.popup {
+    position: absolute;
+    z-index: 100;
+    padding: $ui-unit-xsm 0;
+
+    background-color: $ui-color-text-bg;
+    color: $ui-color-text-primary;
+
+    @include border-radius($ui-unit);
+  }
 
   &.embedded {
     position: relative;

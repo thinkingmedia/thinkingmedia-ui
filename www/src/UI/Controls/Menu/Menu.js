@@ -1,6 +1,18 @@
 /**
  * @ngdoc directive
  * @name ui.controls.uiMenu
+ * @description
+ *
+ * Creates a hidden pop-up menu that uses the first child as a clicking target.
+ *
+ * If you want the menu to be embedded in the DOME, then don't create a clickable target as a child.
+ *
+ * @restrict E
+ * @example
+ <example module="ui">
+ <file name="index.html">
+ </file>
+ </example>
  */
 (function (app) {
 
@@ -11,21 +23,19 @@
         function () {
 
             /**
-             * @name UI.Menu.Controller
-             *
-             * @param {angular.IScope} $scope
+             * @name ui.controls.uiMenu.Controller
              */
-            function controller($scope) {
+            function controller() {
                 var $target = null;
                 /**
-                 * @param {angular.IAugmentedJQuery} el
+                 * @param {jQuery} el
                  */
                 this.setTarget = function (el) {
                     $target = el.length === 0
                         ? null : el;
                 };
                 /**
-                 * @returns {ng.IAugmentedJQuery}
+                 * @returns {jQuery|null}
                  */
                 this.getTarget = function () {
                     return $target;
@@ -34,14 +44,14 @@
 
             /**
              * @param {angular.IScope} scope
-             * @param {Array.<Element>} el
+             * @param {jQuery} el
              * @param {$compile.directive.Attributes} attr
              * @param {UI.Menu.Controller} $uiMenu
              * @param {function} transcludeFn
              * @private
              */
             function _link(scope, el, attr, $uiMenu, transcludeFn) {
-                attr.$addClass('ui-menu');
+                el.addClass('ui-menu');
 
                 transcludeFn(function (clone) {
                     var $target = clone.find('[ui-menu-target]').first();
@@ -57,11 +67,9 @@
                 restrict: 'E',
                 transclude: 'element',
                 scope: {
-                    'embedded': '@'
                 },
                 link: _link,
                 controller: [
-                    '$scope',
                     controller
                 ],
                 controllerAs: '$uiMenu'
