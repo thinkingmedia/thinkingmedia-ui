@@ -21,9 +21,7 @@
 (function (app) {
 
     app.directive('uiButton', [
-        '$uiSize',
-        function (/** UI.Size */$uiSize) {
-
+        function () {
             /**
              * @param {angular.IScope} scope
              * @param {jQuery} el
@@ -33,29 +31,30 @@
              * @private
              */
             function _link(scope, el, attr, parents, transcludeFn) {
-                el.addClass('ui-button');
+                var $el = angular.element(el);
+                $el.addClass('ui-button');
 
                 transcludeFn(function (cloned) {
-                    el.append(cloned);
+                    $el.append(cloned);
                     var hasIcon = cloned.filter("ui-icon").length !== 0;
                     if (hasIcon) {
-                        el.addClass('has-icon');
+                        $el.addClass('has-icon');
 
                         // @todo - Find a better way to check if there is inner text.
                         var txt = cloned
                             .filter('span.ng-scope')
                             .addClass('ui-button-txt');
                         if (txt.length === 0) {
-                            el.addClass('icon-only');
+                            $el.addClass('icon-only');
                         }
                     }
 
-                    if(parents[0]) {
+                    if (parents[0]) {
                         parents[0].setHeight(el);
                     }
 
                     if (parents[1]) {
-                        el.addClass('as-menu-item');
+                        $el.addClass('as-menu-item');
                     }
                 });
             }
@@ -67,6 +66,7 @@
                 scope: {},
                 link: _link
             }
-        }]);
+        }
+    ]);
 
 })(angular.module('thinkingmedia.ui.controls'));

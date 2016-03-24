@@ -24,17 +24,18 @@
 
             /**
              * @param {angular.IScope} scope
-             * @param {jQuery} el
+             * @param {Array.<Element>} el
              * @param {$compile.directive.Attributes} attr
              * @param {ui.components.uiHeight.Controller} $uiHeight
              */
             function _link(scope, el, attr, $uiHeight) {
-                el.addClass('ui-icon');
+                var $el = angular.element(el);
+                $el.addClass('ui-icon');
                 scope.$watch('name', function (value) {
                     // using font-awesome
                     if (_.startsWith(value, 'fa-')) {
-                        el.addClass('fa');
-                        el.addClass(value);
+                        $el.addClass('fa');
+                        $el.addClass(value);
                         return;
                     }
                     // using Material Icons
@@ -42,10 +43,14 @@
                     el.text(value);
                 });
 
-                $uiHeight.setHeight(el);
+                if(!$uiHeight) {
+                    $el.addClass('ui-height-md');
+                    return;
+                }
 
+                $uiHeight.setHeight($el);
                 if($uiHeight.getHeight() === 'sd' && $uiHeight.getParentHeight() === 'md') {
-                    el.addClass('ui-fit-md');
+                    $el.addClass('ui-fit-md');
                 }
             }
 
